@@ -1,0 +1,51 @@
+.album__container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    background: none;
+    p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        color: $offWhite;
+        width: calc(75%);
+        margin-top: 20px;
+        font-size: 1.2rem;
+        font-family: 'Helvetica';
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .album {
+        background: none;
+        z-index: 2;
+        margin-left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 17px;
+        opacity: 0.8;
+        cursor: pointer;
+        .play__icon {
+            display: none;
+        }
+        &:hover {
+            opacity: 1;
+            transform: scale(1.08);
+            transition: 200ms ease-in;
+            .play__icon {
+                display: flex;
+                color: $pyreOrange;
+                background: none;
+                border-radius: 50%;
+                margin: auto;
+                font-size: 5rem;
+                &:hover {
+                    color: orange;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

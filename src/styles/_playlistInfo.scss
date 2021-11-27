@@ -1,0 +1,81 @@
+.playlistInfo {
+    background: none;
+    p {
+        margin-top: 50px;
+        font-size: 1.7rem;
+        color: $offWhite;
+    }
+    .playlist__info {
+        display: flex;
+        background: none;
+        img {
+            width: 225px;
+            height: 225px;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+        .playlist__text {
+            margin-top: 5px;
+            margin-left: 40px;
+            h2 {
+                position: relative;
+                background: none;
+                z-index: 5;
+                color: $offWhite;
+                font-size: 3rem;
+                font-family: 'Helvetica Neue'
+            }
+            h1 {
+                margin-top: 17px;
+                color: $offWhite;
+                font-size: 2rem;
+                font-family: 'Helvetica Neue'
+            }
+            .playlist__icons {
+                display: flex;
+                align-items: center;
+                .play__icon {
+                    margin-top: 15px;
+                    margin-left: -5px;
+                    font-size: 5rem;
+                    color: $pyreOrange;
+                    &:hover {
+                        color: orange;
+                        cursor: pointer;
+                        transform: scale(1.08);
+                        transition: 200ms ease-in;
+                    }
+                }
+                .edit__icon {
+                    color: #0c0c0c;
+                    font-size: 2rem;
+                    margin-left: 20px;
+                    margin-top: 20px;
+                    padding: 9px;
+                    background-color: $pyreOrange;
+                    border-radius: 50%;
+                    &:hover {
+                        background-color: orange;
+                        cursor: pointer;
+                        transform: scale(1.08);
+                        transition: 200ms ease-in;
+                    }
+                }
+                .fav__icon {
+                    color: $pyreOrange;
+                    font-size: 3rem;
+                    margin-left: 20px;
+                    margin-top: 20px;
+                    &:hover {
+                        color: orange;
+                        cursor: pointer;
+                        transform: scale(1.08);
+                        transition: 200ms ease-in;
+                    }
+                }
+            }
+        }
+    }
+}
+
+

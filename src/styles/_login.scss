@@ -1,0 +1,21 @@
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        font-weight: 600;
+        font-size: 1.2rem;
+        background-color: orange;
+        text-decoration: none;
+        color: $offWhite;
+        border-radius: 30px;
+        &:hover { 
+            background-color: rgb(255, 182, 47);
+        }
+    }
+}

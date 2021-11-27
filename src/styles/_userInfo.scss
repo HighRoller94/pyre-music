@@ -1,0 +1,60 @@
+.user__header {
+    align-items: center;
+    margin-top: 40px;
+    display: flex;
+    img {
+        width: 250px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    .user__info {
+        display: flex;
+        flex-direction: column;
+        margin-top: -20px;
+        margin-left: 50px;
+        h1 {
+            color: white;
+            font-family: 'Helvetica Neue';
+            font-size: 4.5rem;
+        }
+    }
+    .user__followButton {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        p {
+            color: white;
+            margin-left: 20px;
+            font-size: 1.2rem;
+        }
+        .user__unfollow {
+            font-size: 1.1rem;
+            border: none;
+            outline: none;
+            background-color: $pyreOrange;
+            color: white;
+            border-radius: 15px;
+            padding: 12px 18px;
+            &:hover {
+                background-color: orange;
+                cursor: pointer;
+                transition: 200ms ease-in;
+            }
+        }
+        .user__follow {
+            font-size: 1.1rem;
+            border: none;
+            outline: none;
+            background-color: $pyreOrange;
+            color: white;
+            border-radius: 15px;
+            padding: 12px 18px;
+            &:hover {
+                background-color: orange;
+                cursor: pointer;
+                transition: 200ms ease-in;
+            }
+        }
+    }
+}

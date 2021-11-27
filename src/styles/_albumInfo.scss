@@ -1,0 +1,60 @@
+.albumInfo {
+    p {
+        margin-top: 30px;
+        font-size: 1.7rem;
+        color: $offWhite;
+    }
+    .album__info {
+        display: flex;
+        img {
+            width: 250px;
+            height: 250px;
+            border-radius: 15px;
+        }
+        .album__text {
+            margin-left: 35px;
+            h1 {
+                margin-top: 12px;
+                color: $offWhite;
+                font-size: 4rem;
+                font-family: 'Helvetica Neue'
+            }
+            h2 {
+                color: $offWhite;
+                margin-top: 10px;
+                font-size: 2rem;
+                font-family: 'Helvetica Neue'
+            }
+            .info__icons {
+                display: flex;
+                align-items: center;
+                .play__icon {
+                    margin-top: 15px;
+                    font-size: 5rem;
+                    color: $pyreOrange;
+                    &:hover {
+                        color: orange;
+                        cursor: pointer;
+                        transform: scale(1.08);
+                        transition: 200ms ease-in;
+                    }
+                }
+                .saved__icon {
+                    cursor: pointer;
+                    margin-left: 20px;
+                    margin-top: 20px;
+                    color: $pyreOrange;
+                    font-size: 3rem;
+                    &:hover {
+                        color: orange;
+                        transform: scale(1.08);
+                        transition: 200ms ease-in;
+                    }
+                }
+            }
+            
+        }
+    }
+
+        
+}

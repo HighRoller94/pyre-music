@@ -1,0 +1,39 @@
+.track {
+    display: flex;
+    width: 85%;
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+    &:hover {
+        cursor: pointer;
+    }
+    img {
+        width: 45px;
+        height: 45px;
+        object-fit: cover;
+        border-radius: 7px;
+    }
+    .track__info {
+        display: flex;
+        align-items: center;
+        color: $offWhite;
+        font-size: 1.1rem;
+        margin-left: 20px;
+        padding: 0 10px;
+        width: 80%;
+        border-radius: 10px;
+        background-color: #1C1C1c;
+        p {
+            background: none;
+            font-family: 'Helvetica';
+        }
+    }
+    .play__icon {
+        font-size: 3rem;
+        color: $pyreOrange;
+        margin-left: 50px;
+        &:hover {
+            color: orange;
+        }
+    }
+}

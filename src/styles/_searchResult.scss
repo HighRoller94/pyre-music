@@ -1,0 +1,62 @@
+.search__result {
+    width: 125px;
+    transition: 200ms ease-in;
+    margin: 0 20px 0 0;
+    img {
+        width: 110px;
+        height: 110px;
+        object-fit: contain;
+        border-radius: 20px;
+        opacity: 0.8;
+        &:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+    h3 {
+        font-family: 'Helvetica';
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        color: $offWhite;
+        padding: 5px;
+        width: 100px;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        margin-top: 10px;
+        transition: 200ms ease-in;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    p {
+        font-family: 'Helvetica';
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        color: $offWhite;
+        padding: 5px;
+        width: 100px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        transition: 200ms ease-in;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .play__icon {
+        margin-top: 10px;
+        font-size: 2.5rem;
+        color: $pyreOrange;
+        transition: 200ms ease-in;
+        &:hover {
+            cursor: pointer;
+            color: orange;
+            transform: scale(1.08);
+            transition: 200ms ease-in;
+        }
+    }
+}

@@ -1,0 +1,99 @@
+.playlist__row {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    background: none;
+    z-index: 2;
+    opacity: 0.8;
+    .track__image {
+        margin-top: 3px;
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 15px;
+    }
+    .playlist__track {
+        display: flex;
+        align-items: center;
+        width: calc(86.5%);
+        transition: 200ms ease-in;
+        background-color: #1c1c1c;
+        border-radius: 10px;
+        img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+        &:hover {
+            background-color: #292929;
+            opacity: 1;
+        }
+        .track__infoLeft {
+            display: flex;
+            color: $offWhite;
+            padding: 14px 0;
+            background: none;
+            align-items: center;
+            h1 {
+                font-size: 1.2rem;
+                background: none;
+                margin-left: 15px;
+            }
+            h2 {
+                font-weight: 300;
+                margin-top: 3px;
+                margin-left: 20px;
+                opacity: 0.5;
+                font-size: 1rem;
+                color: $offWhite;
+                background: none;
+            }
+            a{
+                background: none;
+            }
+        }
+        .track__infoRight {
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            margin-left: auto;
+            background: none;
+            h3 {
+                color: $offWhite;
+                margin-right: 20px;
+                background: none;
+                font-size: 1rem;
+            }
+            .play__icon {
+                margin-right: 20px;
+                font-size: 2.5rem;
+                background: none;
+                color: $pyreOrange;
+                &:hover {
+                    color: orange;
+                    cursor: pointer;
+                    transform: scale(1.08);
+                    transition: 200ms ease-in;
+                }
+            }
+            .remove__icon {
+                margin-right: 20px;
+                font-size: 2rem;
+                background: none;
+                color: $pyreOrange;
+                &:hover {
+                    color: orange;
+                    cursor: pointer;
+                    transform: scale(1.08);
+                    transition: 200ms ease-in;
+                }
+            }
+        }
+        
+    }
+}
+

@@ -1,0 +1,49 @@
+.searchArtist__container {
+    display: flex;
+    flex-direction: column;
+    p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        text-align: center;
+        color: $offWhite;
+        margin-left: 20px;
+        width: calc(75%);
+        margin-top: 14px;
+        font-size: 1.2rem;
+        font-family: 'Helvetica';
+        position: relative;
+        background: none;
+        z-index: 2;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .search__artist {
+        z-index: 2;
+        width: 100%;
+        margin: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        opacity: 0.8;
+        cursor: pointer;
+        .play__icon {
+            display: none;
+        }
+        &:hover {
+            opacity: 1;
+            transform: scale(1.08);
+            transition: 200ms ease-in;
+            .play__icon {
+                display: flex;
+                color: $pyreOrange;
+                background: none;
+                border-radius: 50%;
+                margin: auto;
+                font-size: 3rem;
+            }
+        }
+    }
+}

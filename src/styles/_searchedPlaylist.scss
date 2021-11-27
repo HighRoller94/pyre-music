@@ -1,0 +1,51 @@
+.searchplaylist__container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    margin-top: 50px;
+    p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        color: $offWhite;
+        width: 150px;
+        margin-top: 20px;
+        font-size: 1.2rem;
+        font-family: 'Helvetica';
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .search__playlist {
+        width: 100%;
+        margin: 0 70px 0 0;
+        display: flex;
+        flex-direction: column;
+        border-radius: 17px;
+        opacity: 0.8;
+        cursor: pointer;
+        .play__icon {
+            display: none;
+        }
+        &:hover {
+            opacity: 1;
+            transform: scale(1.08);
+            transition: 200ms ease-in;
+            .play__icon {
+                display: flex;
+                color: $pyreOrange;
+                background: none;
+                border-radius: 50%;
+                margin: auto;
+                font-size: 5rem;
+                &:hover {
+                    color: orange;
+                }
+            }
+        }
+    }
+}

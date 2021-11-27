@@ -1,0 +1,50 @@
+.recent__container {
+    display: flex;
+    flex-direction: column;
+    p {
+        z-index: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: center;
+        display: inline-block;
+        color: $offWhite;
+        margin-left: 20px;
+        width: calc(75%);
+        margin-top: 10px;
+        font-size: 1rem;
+        font-family: 'Helvetica';
+        position: relative;
+        background: none;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .recent__artist {
+        z-index: 2;
+        width: 100%;
+        margin-left: 20px;
+        margin: 4px 20px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        opacity: 0.8;
+        cursor: pointer;
+        .play__icon {
+            display: none;
+        }
+        &:hover {
+            opacity: 1;
+            transform: scale(1.08);
+            transition: 200ms ease-in;
+            .play__icon {
+                display: flex;
+                color: $pyreOrange;
+                background: none;
+                border-radius: 50%;
+                margin: auto;
+                font-size: 3rem;
+            }
+        }
+    }
+}

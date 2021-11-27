@@ -1,0 +1,53 @@
+.recent__song {
+    display: flex;
+    flex-direction: column;
+    width: 125px;
+    margin: 0 15px;
+    transition: 200ms ease-in;
+    img {
+        width: 110px;
+        height: 110px;
+        object-fit: contain;
+        border-radius: 20px;
+        opacity: 0.8;
+        z-index: 2;
+        &:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+    p {
+        z-index: 5;
+        position: relative;
+        background: none;
+        font-family: 'Helvetica';
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        color: $offWhite;
+        padding: 5px;
+        width: calc(86%);
+        border-radius: 5px;
+        font-size: 1rem;
+        margin-top:7px;
+        transition: 200ms ease-in;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .play__icon {
+        margin-top: 7px;
+        font-size: 2.5rem;
+        color: $pyreOrange;
+        transition: 200ms ease-in;
+        z-index: 3;
+        background: none;
+        &:hover {
+            cursor: pointer;
+            color: orange;
+            transform: scale(1.08);
+            transition: 200ms ease-in;
+        }
+    }
+}

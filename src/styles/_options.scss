@@ -1,0 +1,32 @@
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 110px;
+    margin-right: 50px;
+    background: none;
+    z-index: 5;
+    .option {
+        display: flex;
+        align-items: center;
+        width: 55px;
+        height: 55px;
+        margin-top: 25px;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #1C1C1C;
+        transition: 200ms ease-in;
+        &:hover {
+            cursor: pointer;
+            background-color: #2c2c2c;
+        }
+        .option__icon {
+            color: $pyreOrange;
+            font-size: 2rem;
+        }
+    }
+}
