@@ -1,11 +1,15 @@
 const functions = require("firebase-functions");
 
-require('dotenv').config()
+require('dotenv').config();
 
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 const lyricsFinder = require('lyrics-finder')
-const SpotifyWebApi = require('spotify-web-api-node')
+const SpotifyWebApi = require('spotify-web-api-node');
+
+const APP_KEY = functions.config().pyre.key;
+const APP_ID = functions.config().pyre.id;
+const APP_REDIRECT = functions.config().pyre.redirect;
 
 const app = express();
 app.use(cors())
@@ -18,9 +22,9 @@ app.post('/refresh', (req, res) => {
     const refreshToken = req.body.refreshToken
 
     const spotifyApi = new SpotifyWebApi({
-    redirectUri: "https://pyre-2e47e.web.app/dashboard",
-    clientId: "a4461782c5b040b2a456806c4d99258f",
-    clientSecret: "aa8b6faf91d0499a84091561056bec2b",
+    redirectUri: APP_REDIRECT,
+    clientId: APP_ID,
+    clientSecret: APP_KEY,
     refreshToken,
     })
     spotifyApi.refreshAccessToken().then(data => {
@@ -39,9 +43,9 @@ app.post('/login', (req, res) => {
     const code = req.body.code
 
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: "https://pyre-2e47e.web.app/dashboard",
-        clientId: "a4461782c5b040b2a456806c4d99258f",
-        clientSecret: "aa8b6faf91d0499a84091561056bec2b",
+        redirectUri: APP_REDIRECT,
+        clientId: APP_ID,
+        clientSecret: APP_KEY,
     })
     spotifyApi.authorizationCodeGrant(code).then(data => {
         res.json({

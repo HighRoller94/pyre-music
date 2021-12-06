@@ -95,7 +95,7 @@ function App() {
 
     useEffect(() => {
         if (!playingTrack) return
-        axios.get('http://localhost:3001/lyrics', {
+        axios.get('https://us-central1-pyre-2e47e.cloudfunctions.net/app/lyrics', {
             params: {
                 track: playingTrack.title,
                 artist: playingTrack.artist
