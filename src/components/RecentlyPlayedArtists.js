@@ -66,7 +66,7 @@ function RecentlyPlayedArtists({ accessToken, track }) {
 
     return (
         <div className="recent__container">
-                <div className="recent__artist" style={{ width: 150, height: 150, backgroundImage: `url(${artistInfo?.images[0].url})`, backgroundSize: 'cover', borderRadius: '50%'}}>
+                <div className="recent__artist" style={{ width: 150, height: 150, backgroundImage: `url(${artistInfo?.images[0]?.url})`, backgroundSize: 'cover', borderRadius: '50%'}}>
                 {(artistInfo?.uri != playingTrack || !playing) ?
                     <PlayCircleFilledIcon onClick={handlePlay} className="play__icon"/>
                 : 
