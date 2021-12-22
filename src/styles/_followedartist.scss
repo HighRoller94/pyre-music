@@ -29,14 +29,15 @@
         flex-direction: column;
         border-radius: 20px;
         opacity: 0.8;
+        transition: 200ms ease-in;
         cursor: pointer;
         .play__icon {
             display: none;
         }
         &:hover {
             opacity: 1;
-            transform: scale(1.08);
-            transition: 200ms ease-in;
+            transform: scale(1.05);
+            
             .play__icon {
                 display: flex;
                 color: $pyreOrange;

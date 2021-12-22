@@ -70,7 +70,7 @@
 
 .header .header__left .search__input .search__icon {
   font-size: 1.9rem;
-  color: #FF6600;
+  color: #FB7E2C;
   margin: 20px 0 20px 40px;
   padding: 10px;
   border-radius: 50%;
@@ -125,7 +125,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 50%;
-  color: #FF6600;
+  color: #FB7E2C;
   margin: 0 15px;
   padding: 4px;
   -webkit-transition: 200ms ease-in;
@@ -239,7 +239,7 @@
   margin-top: 10px;
   border-radius: 20px;
   font-size: 3rem;
-  color: #FF6600;
+  color: #FB7E2C;
   background-color: #2C2C2C;
   -webkit-transition: 200ms ease-in;
   transition: 200ms ease-in;
@@ -272,7 +272,7 @@
   position: absolute;
   margin-bottom: 40px;
   bottom: 0;
-  width: 70px;
+  width: 90px;
   background-color: #1C1C1C;
   background: none;
 }
@@ -325,7 +325,7 @@
 }
 
 .options .option .option__icon {
-  color: #FF6600;
+  color: #FB7E2C;
   font-size: 2rem;
 }
 
@@ -435,7 +435,7 @@
 .recent__song .play__icon {
   margin-top: 7px;
   font-size: 2.5rem;
-  color: #FF6600;
+  color: #FB7E2C;
   -webkit-transition: 200ms ease-in;
   transition: 200ms ease-in;
   z-index: 3;
@@ -515,7 +515,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #FF6600;
+  color: #FB7E2C;
   background: none;
   border-radius: 50%;
   margin: auto;
@@ -549,7 +549,7 @@
 
 .favs__page .fav__tracks h2 {
   color: #f1f1f1;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-family: 'Helvetica Neue';
 }
 
@@ -567,7 +567,7 @@
 
 .favs__page .fav__playlists h1 {
   color: #f1f1f1;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-family: 'Helvetica Neue';
 }
 
@@ -580,13 +580,13 @@
 }
 
 .favs__page .followed__artists {
-  margin-top: 30px;
+  margin-top: 20px;
   padding-bottom: 50px;
 }
 
 .favs__page .followed__artists h1 {
   color: white;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-family: 'Helvetica Neue';
 }
 
@@ -639,6 +639,8 @@
       -ms-flex-direction: column;
           flex-direction: column;
   border-radius: 17px;
+  -webkit-transition: 200ms ease-in;
+  transition: 200ms ease-in;
   opacity: 0.8;
   cursor: pointer;
   z-index: 2;
@@ -650,17 +652,15 @@
 
 .artist__container .top__artist:hover {
   opacity: 1;
-  -webkit-transform: scale(1.08);
-          transform: scale(1.08);
-  -webkit-transition: 200ms ease-in;
-  transition: 200ms ease-in;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .artist__container .top__artist:hover .play__icon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #FF6600;
+  color: #FB7E2C;
   background: none;
   border-radius: 50%;
   margin: auto;
@@ -857,7 +857,7 @@
 .search__result .play__icon {
   margin-top: 10px;
   font-size: 2.5rem;
-  color: #FF6600;
+  color: #FB7E2C;
   -webkit-transition: 200ms ease-in;
   transition: 200ms ease-in;
 }
@@ -934,7 +934,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #FF6600;
+  color: #FB7E2C;
   background: none;
   border-radius: 50%;
   margin: auto;
@@ -1009,7 +1009,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #FF6600;
+  color: #FB7E2C;
   background: none;
   border-radius: 50%;
   margin: auto;
@@ -1110,7 +1110,7 @@
 
 .artist__icons .play__icon {
   font-size: 5rem;
-  color: #FF6600;
+  color: #FB7E2C;
 }
 
 .artist__icons .play__icon:hover {
@@ -1125,7 +1125,7 @@
 .artist__icons .fav__icon {
   font-size: 2.5rem;
   margin: 20px 20px;
-  color: #FF6600;
+  color: #FB7E2C;
 }
 
 .artist__icons .fav__icon:hover {
@@ -1183,7 +1183,7 @@
 
 .track .play__icon {
   font-size: 3rem;
-  color: #FF6600;
+  color: #FB7E2C;
   margin-left: 50px;
 }
 
@@ -1238,7 +1238,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #FF6600;
+  color: #FB7E2C;
   background: none;
   border-radius: 50%;
   margin: auto;
@@ -1296,7 +1296,7 @@
   display: flex;
   margin-left: 35px;
   margin-top: 7px;
-  color: #FF6600;
+  color: #FB7E2C;
   font-size: 3.3rem;
 }
 
@@ -1397,7 +1397,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #FF6600;
+  color: #FB7E2C;
   background: none;
   border-radius: 50%;
   margin: auto;
@@ -1469,7 +1469,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #FF6600;
+  color: #FB7E2C;
   background: none;
   border-radius: 50%;
   margin: auto;
@@ -1539,7 +1539,7 @@
 .albumInfo .album__info .album__text .info__icons .play__icon {
   margin-top: 15px;
   font-size: 5rem;
-  color: #FF6600;
+  color: #FB7E2C;
 }
 
 .albumInfo .album__info .album__text .info__icons .play__icon:hover {
@@ -1555,7 +1555,7 @@
   cursor: pointer;
   margin-left: 20px;
   margin-top: 20px;
-  color: #FF6600;
+  color: #FB7E2C;
   font-size: 3rem;
 }
 
@@ -1642,7 +1642,7 @@
   margin-right: 20px;
   font-size: 2.2rem;
   background: none;
-  color: #FF6600;
+  color: #FB7E2C;
 }
 
 .album__track .albumTrackInfo__right .play__icon:hover {
@@ -1713,7 +1713,7 @@
   margin-top: 15px;
   margin-left: -5px;
   font-size: 5rem;
-  color: #FF6600;
+  color: #FB7E2C;
 }
 
 .playlistInfo .playlist__info .playlist__text .playlist__icons .play__icon:hover {
@@ -1731,7 +1731,7 @@
   margin-left: 20px;
   margin-top: 20px;
   padding: 9px;
-  background-color: #FF6600;
+  background-color: #FB7E2C;
   border-radius: 50%;
 }
 
@@ -1745,7 +1745,7 @@
 }
 
 .playlistInfo .playlist__info .playlist__text .playlist__icons .fav__icon {
-  color: #FF6600;
+  color: #FB7E2C;
   font-size: 3rem;
   margin-left: 20px;
   margin-top: 20px;
@@ -1869,7 +1869,7 @@
   margin-right: 20px;
   font-size: 2.5rem;
   background: none;
-  color: #FF6600;
+  color: #FB7E2C;
 }
 
 .playlist__row .playlist__track .track__infoRight .play__icon:hover {
@@ -1885,7 +1885,7 @@
   margin-right: 20px;
   font-size: 2rem;
   background: none;
-  color: #FF6600;
+  color: #FB7E2C;
 }
 
 .playlist__row .playlist__track .track__infoRight .remove__icon:hover {
@@ -2070,7 +2070,7 @@
 .playlist__search .search__container .search__icon {
   margin-right: 50px;
   font-size: 2.7rem;
-  color: #FF6600;
+  color: #FB7E2C;
   z-index: 2;
   background: none;
 }
@@ -2196,7 +2196,7 @@
   margin-right: 20px;
   font-size: 2.5rem;
   background: none;
-  color: #FF6600;
+  color: #FB7E2C;
 }
 
 .searched__row .searched__track .track__right .play__icon:hover {
@@ -2212,7 +2212,7 @@
   margin-right: 20px;
   font-size: 2.5rem;
   background: none;
-  color: #FF6600;
+  color: #FB7E2C;
 }
 
 .searched__row .searched__track .track__right .add__icon:hover {
@@ -2269,6 +2269,8 @@
           flex-direction: column;
   border-radius: 20px;
   opacity: 0.8;
+  -webkit-transition: 200ms ease-in;
+  transition: 200ms ease-in;
   cursor: pointer;
 }
 
@@ -2278,17 +2280,15 @@
 
 .followed__container .followed__artist:hover {
   opacity: 1;
-  -webkit-transform: scale(1.08);
-          transform: scale(1.08);
-  -webkit-transition: 200ms ease-in;
-  transition: 200ms ease-in;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .followed__container .followed__artist:hover .play__icon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #FF6600;
+  color: #FB7E2C;
   background: none;
   border-radius: 50%;
   margin: auto;
@@ -2365,7 +2365,7 @@
   font-size: 1.1rem;
   border: none;
   outline: none;
-  background-color: #FF6600;
+  background-color: #FB7E2C;
   color: white;
   border-radius: 15px;
   padding: 12px 18px;
@@ -2382,7 +2382,7 @@
   font-size: 1.1rem;
   border: none;
   outline: none;
-  background-color: #FF6600;
+  background-color: #FB7E2C;
   color: white;
   border-radius: 15px;
   padding: 12px 18px;
@@ -2421,7 +2421,7 @@
 }
 
 .scroll__icon {
-  color: #FF6600;
+  color: #FB7E2C;
   position: fixed;
   right: 0;
   bottom: 0;

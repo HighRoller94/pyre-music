@@ -69,6 +69,7 @@ function Header({ accessToken, chooseTrack }) {
                         <SearchIcon className="search__icon" onClick={setOpenSearch}/>
                         <input 
                             placeholder="Search artists..." 
+                            spellCheck="false"
                             type="text" 
                             value={search} 
                             onChange={e => setSearch(e.target.value)}

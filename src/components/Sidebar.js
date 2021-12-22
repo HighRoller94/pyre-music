@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
+
 import pyreLogo from '../assets/images/pyreLogo.png';
 
 import HomeIcon from '@material-ui/icons/Home';

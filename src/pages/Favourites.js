@@ -31,6 +31,7 @@ function Favourites({ chooseTrack, accessToken }) {
         spotifyApi.getFollowedArtists({ limit : 8})
         .then(res => {
             setFollowedArtists(res.body.artists.items)
+            console.log(res)
         })
     }, [accessToken])
 

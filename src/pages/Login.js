@@ -4,7 +4,7 @@ import React from 'react'
 import '../styles/styles.scss'
 
 const authEndpoint = "http://accounts.spotify.com/authorize";
-const redirectURI = "https://pyre-2e47e.web.app/dashboard";
+const redirectURI = "http://localhost:3000/dashboard";
 const clientId = "a4461782c5b040b2a456806c4d99258f";
 
 const scopes = [

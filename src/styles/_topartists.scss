@@ -24,6 +24,7 @@
         display: flex;
         flex-direction: column;
         border-radius: 17px;
+        transition: 200ms ease-in;
         opacity: 0.8;
         cursor: pointer;
         z-index: 2;
@@ -32,8 +33,7 @@
         }
         &:hover {
             opacity: 1;
-            transform: scale(1.08);
-            transition: 200ms ease-in;
+            transform: scale(1.05);
             .play__icon {
                 display: flex;
                 color: $pyreOrange;

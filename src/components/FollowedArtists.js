@@ -33,7 +33,7 @@ function FollowedArtists({ artist, chooseTrack }) {
     return (
         <div>
             <div className="followed__container">
-                <div className="followed__artist" style={{ width: 150, height: 150, backgroundImage: `url(${artist?.images[0].url})`, backgroundSize: 'cover', borderRadius: '50%'}}>
+                <div className="followed__artist" style={{ width: 165, height: 165, backgroundImage: `url(${artist?.images[0].url})`, backgroundSize: 'cover', borderRadius: '50%'}}>
                 {(artist?.uri != playingTrack || !playing) ?
                     <PlayCircleFilledIcon onClick={handlePlay} className="play__icon"/>
                 : 
