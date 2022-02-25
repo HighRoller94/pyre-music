@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import pyreLogo from '../assets/images/pyreLogo.png';
@@ -12,7 +12,8 @@ import GroupIcon from '@material-ui/icons/Group';
 import '../styles/styles.scss';
 
 function Sidebar() {
-    const [active, setActive] = useState(false)
+
+    const { pathname } = useLocation();
 
     return (
         <motion.div 
@@ -21,14 +22,20 @@ function Sidebar() {
             animate={{ opacity: 1}}
             exit={{ opacity: 0}}
             >
-            <div className="sidebar__options">
-                <NavLink to="/dashboard" style={{ background: 'none' }}><HomeIcon className="side__option" /></NavLink>
+            <div className={pathname === "/dashboard" ? "sidebar__options": "inactive__options"} component={Link} to="/dashboard">
+                <Link to="/dashboard" activeClassName="active">
+                    <HomeIcon className="side__option" />
+                </Link>
             </div>
-            <div className="sidebar__options">
-                <NavLink to="/library" style={{ background: 'none' }}><LibraryMusicIcon className="side__option" /></NavLink>
+            <div className={pathname === "/library" ? "sidebar__options": "inactive__options"} component={Link} to="/library">
+                <NavLink to="/library" style={{ background: 'none' }}>
+                    <LibraryMusicIcon className="side__option" />
+                </NavLink>
             </div>
-            <div className="sidebar__options">
-                <NavLink to="/favourites" style={{ background: 'none'}}><FavoriteIcon className="side__option" /></NavLink>
+            <div className={pathname === "/favourites" ? "sidebar__options": "inactive__options"} component={Link} to="/favourites">
+                <NavLink to="/favourites" style={{ background: 'none'}}>
+                <FavoriteIcon className="side__option" />
+                </NavLink>
             </div>
             <div className="sidebar__bottom">
                 <img src={pyreLogo} className="pyre__logo" alt="" />
