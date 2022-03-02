@@ -26,6 +26,35 @@
             border-radius: 20px;
             font-size: 3rem;
             color: $pyreOrange;
+            background-color: #4A4A4A;
+            transition: 200ms ease-in;
+            &:active {
+                background-color: #4A4A4A;
+            }
+            &:hover {
+                background-color: #4A4A4A;
+                cursor: pointer;
+            }
+        }
+    }
+    .inactive__options {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $background;
+        margin-top: 25px;
+        background: none;
+        .side__option {
+            background: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 20px;
+            font-size: 3rem;
+            color: $pyreOrange;
             background-color: #2C2C2C;
             transition: 200ms ease-in;
             &:active {

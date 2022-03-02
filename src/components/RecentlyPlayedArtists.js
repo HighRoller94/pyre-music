@@ -18,18 +18,13 @@ function RecentlyPlayedArtists({ accessToken, track }) {
     const [artistInfo, setArtistInfo] = useState()
 
     useEffect(() => {
-        if (!accessToken) return
-        spotifyApi.setAccessToken(accessToken)
-    }, [accessToken])
-    
-    useEffect( () => {
-        if (!accessToken) return
+        // Get artist recently played artist info using recent tracks
         spotifyApi.getArtist(`${track?.artists[0].id}`)
         .then(res => {
             setArtistInfo(res.body)
         })
     }, [accessToken])
-
+    
     function chooseTrack(track) {
         if (track) {
             setPlayingArtist(track)

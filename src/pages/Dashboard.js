@@ -15,34 +15,33 @@ const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
 });
 
-function Home({ accessToken, chooseTrack }) {
-    const [{ user }, dispatch] = useDataLayerValue()
-    const [recentlyPlayed, setRecentlyPlayed] = useState()
-    const [info, setInfo] = useState()
-    const artistInfo = []
-    
+function Dashboard({ accessToken, chooseTrack }) {
+    const [uniqueSongs, setUniqueSongs] = useState()
+    const uniquePlays = []
+
     useEffect(() => {
+        // Check for access token, if not, return
         if (!accessToken) return
+        // Set Access Token from code
         spotifyApi.setAccessToken(accessToken)
-    }, [accessToken])
 
-    useEffect(() => {
-        if (!accessToken) return
+        // Get first 15 recently played tracks (enough to ensure 8 unique)
         spotifyApi.getMyRecentlyPlayedTracks({
-            limit: 8
+            limit: 15
         }).then(res => {
-            setRecentlyPlayed(res.body.items)
-            recentlyPlayed?.forEach(iterateForArtistInfo);
+            // From result, identify unique arrays
+            for (let index = 0; index < res.body.items?.length; index++) {
+                let unique = res.body.items[index].track;
+                if (!uniquePlays.includes(unique)) {
+                    uniquePlays.push(unique);
+                }
+                // Set unique arrays in new array using set, cut array down to 8
+                let set = new Set(uniquePlays.map(JSON.stringify));
+                let uniqueSongs = Array.from(set).map(JSON.parse).slice(0,8);
+                setUniqueSongs(uniqueSongs)
+            }
         })
     }, [accessToken])
-
-    function iterateForArtistInfo(item) {
-        spotifyApi.getArtist(`${item.track.artists[0].id}`)
-        .then(res => {
-            setInfo(res.body)
-            console.log(res.body)
-        })
-    }
 
     return (
         <div className="home" >
@@ -50,16 +49,16 @@ function Home({ accessToken, chooseTrack }) {
                 <div className="recent__row">
                     <h1>Jump back in</h1>
                     <div className="recent__items">
-                        {recentlyPlayed?.map((item =>
-                                <RecentlyPlayedSong chooseTrack={chooseTrack} track={item.track}/>
+                        {uniqueSongs?.map((track =>
+                                <RecentlyPlayedSong chooseTrack={chooseTrack} track={track}/>
                         ))}
                     </div>
                 </div>
                 <div className="recent__artists">
                     <h2>Artists</h2>
                     <div className="recent__items">
-                        {recentlyPlayed?.map((item =>
-                                <RecentlyPlayedArtist accessToken={accessToken} chooseTrack={chooseTrack} track={item.track} />
+                        {uniqueSongs?.map((track =>
+                                <RecentlyPlayedArtist accessToken={accessToken} chooseTrack={chooseTrack} track={track} />
                         ))}
                     </div>
                 </div>
@@ -80,4 +79,4 @@ function Home({ accessToken, chooseTrack }) {
     )
 }
 
-export default Home
+export default Dashboard

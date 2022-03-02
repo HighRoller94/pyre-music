@@ -240,7 +240,7 @@
   border-radius: 20px;
   font-size: 3rem;
   color: #FB7E2C;
-  background-color: #2C2C2C;
+  background-color: #4A4A4A;
   -webkit-transition: 200ms ease-in;
   transition: 200ms ease-in;
 }
@@ -250,6 +250,55 @@
 }
 
 .sidebar .sidebar__options .side__option:hover {
+  background-color: #4A4A4A;
+  cursor: pointer;
+}
+
+.sidebar .inactive__options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #1C1C1C;
+  margin-top: 25px;
+  background: none;
+}
+
+.sidebar .inactive__options .side__option {
+  background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 20px;
+  font-size: 3rem;
+  color: #FB7E2C;
+  background-color: #2C2C2C;
+  -webkit-transition: 200ms ease-in;
+  transition: 200ms ease-in;
+}
+
+.sidebar .inactive__options .side__option:active {
+  background-color: #4A4A4A;
+}
+
+.sidebar .inactive__options .side__option:hover {
   background-color: #4A4A4A;
   cursor: pointer;
 }

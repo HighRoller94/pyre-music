@@ -12,7 +12,7 @@ import './styles/styles.scss'
 import Login from './pages/Login'
 import Library from './pages/Library'
 import Artist from './pages/Artist'
-import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
 import Favourites from './pages/Favourites'
 import Album from './pages/Album'
 import Playlist from './pages/Playlist'
@@ -115,7 +115,7 @@ function App() {
                 <Route path="/dashboard">
                     <Sidebar />
                     <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                    <Home chooseTrack={chooseTrack} accessToken={accessToken} />
+                    <Dashboard chooseTrack={chooseTrack} accessToken={accessToken} />
                     <Options accessToken={accessToken} />
                     <Footer accessToken={accessToken}/>
                 </Route>

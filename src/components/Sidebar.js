@@ -23,18 +23,18 @@ function Sidebar() {
             exit={{ opacity: 0}}
             >
             <div className={pathname === "/dashboard" ? "sidebar__options": "inactive__options"} component={Link} to="/dashboard">
-                <Link to="/dashboard" activeClassName="active">
+                <Link to="/dashboard">
                     <HomeIcon className="side__option" />
                 </Link>
             </div>
             <div className={pathname === "/library" ? "sidebar__options": "inactive__options"} component={Link} to="/library">
-                <NavLink to="/library" style={{ background: 'none' }}>
+                <NavLink to="/library">
                     <LibraryMusicIcon className="side__option" />
                 </NavLink>
             </div>
             <div className={pathname === "/favourites" ? "sidebar__options": "inactive__options"} component={Link} to="/favourites">
-                <NavLink to="/favourites" style={{ background: 'none'}}>
-                <FavoriteIcon className="side__option" />
+                <NavLink to="/favourites">
+                    <FavoriteIcon className="side__option" />
                 </NavLink>
             </div>
             <div className="sidebar__bottom">
