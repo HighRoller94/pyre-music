@@ -16,14 +16,6 @@ function RecentlyPlayedArtists({ accessToken, track }) {
     const [{ user, playing, playingTrack }, dispatch] = useDataLayerValue();
     const [playingArtist, setPlayingArtist] = useState()
     const [artistInfo, setArtistInfo] = useState()
-
-    useEffect(() => {
-        // Get artist recently played artist info using recent tracks
-        spotifyApi.getArtist(`${track?.artists[0].id}`)
-        .then(res => {
-            setArtistInfo(res.body)
-        })
-    }, [accessToken])
     
     function chooseTrack(track) {
         if (track) {
@@ -34,7 +26,7 @@ function RecentlyPlayedArtists({ accessToken, track }) {
             })
             dispatch({ 
                 type: "SET_PLAYING_TRACK",
-                playingTrack: artistInfo?.uri
+                playingTrack: track.uri
             })
         } else {
             dispatch({ 
@@ -61,15 +53,15 @@ function RecentlyPlayedArtists({ accessToken, track }) {
 
     return (
         <div className="recent__container">
-                <div className="recent__artist" style={{ width: 150, height: 150, backgroundImage: `url(${artistInfo?.images[0]?.url})`, backgroundSize: 'cover', borderRadius: '50%'}}>
-                {(artistInfo?.uri != playingTrack || !playing) ?
+                <div className="recent__artist" style={{ width: 150, height: 150, backgroundImage: `url(${track.images[0]?.url})`, backgroundSize: 'cover', borderRadius: '50%'}}>
+                {(track.uri != playingTrack || !playing) ?
                     <PlayCircleFilledIcon onClick={handlePlay} className="play__icon"/>
                 : 
                     <PauseCircleFilledIcon onClick={handlePause} className="play__icon"/>
                 }
                 </div>
-                <Link to={`/artist/${track?.artists[0].id}`}>
-                <p>{track?.artists[0].name}</p>
+                <Link to={`/artist/${track?.id}`}>
+                <p>{track?.name}</p>
                 </Link>
         </div>
     )
