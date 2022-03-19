@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import SpotifyWebApi from 'spotify-web-api-node'
 import { useDataLayerValue } from '../DataLayer'
 
+import { motion } from 'framer-motion/dist/framer-motion'
+
 import RecentlyPlayedSong from '../components/RecentlyPlayedSong'
 import RecentlyPlayedArtist from '../components/RecentlyPlayedArtists'
+
 import RecentPlaylists from '../components/RecentPlaylists'
 import NewReleases from '../components/NewReleases'
 import FeaturedPlaylists from '../components/FeaturedPlaylists'
@@ -18,6 +21,8 @@ const spotifyApi = new SpotifyWebApi({
 function Dashboard({ accessToken, chooseTrack }) {
     const [uniqueSongs, setUniqueSongs] = useState()
     const uniquePlays = []
+    const [artistInfo, setArtistInfo] = useState()
+    const [topArtists, setTopArtists] = useState()
 
     useEffect(() => {
         // Check for access token, if not, return
@@ -41,10 +46,22 @@ function Dashboard({ accessToken, chooseTrack }) {
                 setUniqueSongs(uniqueSongs)
             }
         })
+        
+        // Get Top played artists
+        spotifyApi.getMyTopArtists()
+        .then(res => {
+            setTopArtists(res.body.items)
+        })
+
     }, [accessToken])
 
+    const artists = topArtists?.slice(0,8)
+
     return (
-        <div className="home" >
+        <motion.div className="home" 
+        initial={{ opacity: 0}}
+        animate={{ opacity: 1}}
+        exit={{ opacity: 0}}>
             <div className="home__gridone">
                 <div className="recent__row">
                     <h1>Jump back in</h1>
@@ -57,7 +74,7 @@ function Dashboard({ accessToken, chooseTrack }) {
                 <div className="recent__artists">
                     <h2>Artists</h2>
                     <div className="recent__items">
-                        {uniqueSongs?.map((track =>
+                        {artists?.map((track =>
                                 <RecentlyPlayedArtist accessToken={accessToken} chooseTrack={chooseTrack} track={track} />
                         ))}
                     </div>
@@ -75,7 +92,7 @@ function Dashboard({ accessToken, chooseTrack }) {
             <div>
                 <Categories chooseTrack={chooseTrack} accessToken={accessToken} />
             </div>
-        </div>
+        </motion.div>
     )
 }
 

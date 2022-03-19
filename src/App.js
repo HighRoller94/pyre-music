@@ -4,7 +4,8 @@ import useAuth from './useAuth'
 import { useDataLayerValue } from './DataLayer'
 import SpotifyWebApi from 'spotify-web-api-node';
 import axios from 'axios'
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion'
+
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 import './styles/styles.scss'

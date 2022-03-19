@@ -24,7 +24,7 @@
         z-index: 2;
         width: 100%;
         margin-left: 20px;
-        margin: 10px 20px;
+        margin: 0 20px 10px 20px;
         display: flex;
         flex-direction: column;
         border-radius: 20px;
@@ -37,7 +37,6 @@
         &:hover {
             opacity: 1;
             transform: scale(1.05);
-            
             .play__icon {
                 display: flex;
                 color: $pyreOrange;

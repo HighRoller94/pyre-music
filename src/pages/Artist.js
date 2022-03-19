@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import SpotifyWebApi from 'spotify-web-api-node'
 
+import { motion } from 'framer-motion/dist/framer-motion'
+
 import ArtistInfo from '../components/ArtistInfo'
 import ArtistTracks from '../components/ArtistTracks'
 import ArtistAlbums from '../components/ArtistAlbums'
@@ -39,7 +41,10 @@ function Artist({ accessToken, chooseTrack }) {
     const topTracks = artistTracks.slice(0,6)
 
     return (
-        <div className="artist__page">
+        <motion.div className="artist__page"
+        initial={{ opacity: 0}}
+        animate={{ opacity: 1}}
+        exit={{ opacity: 0}}>
             <div>
                 <ArtistInfo info={artistInfo} accessToken={accessToken} chooseTrack={chooseTrack}/>
             </div>
@@ -59,7 +64,7 @@ function Artist({ accessToken, chooseTrack }) {
                     )}
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import SpotifyWebApi from 'spotify-web-api-node'
 
+import { motion } from 'framer-motion/dist/framer-motion'
+
 import UserInfo from '../components/UserInfo'
 import UserPlaylists from '../components/UserPlaylists'
-import UserTopArtists from '../components/UserTopArtists'
 
 import '../styles/styles.scss'
 
@@ -37,7 +38,10 @@ function User({ chooseTrack, accessToken }) {
     }, [id]);
 
     return (
-        <div className="user__page">
+        <motion.div className="user__page" 
+        initial={{ opacity: 0}}
+        animate={{ opacity: 1}}
+        exit={{ opacity: 0}}>
             <div className="user__info">
                 <UserInfo total={total} info={userInfo} accessToken={accessToken} />
             </div>
@@ -46,7 +50,7 @@ function User({ chooseTrack, accessToken }) {
                     <UserPlaylists track={track} chooseTrack={chooseTrack} />
                 )}
             </div>
-        </div>
+        </motion.div>
     )
 }
 

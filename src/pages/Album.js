@@ -3,6 +3,8 @@ import { useDataLayerValue } from '../DataLayer'
 import { useParams } from 'react-router-dom'
 import SpotifyWebApi from 'spotify-web-api-node'
 
+import { motion } from 'framer-motion/dist/framer-motion'
+
 import AlbumInfo from '../components/AlbumInfo'
 import AlbumTracks from '../components/AlbumTracks'
 
@@ -30,7 +32,10 @@ function Album({ accessToken, chooseTrack }) {
     }, [accessToken, id])
 
     return (
-        <div className="album__page" >
+        <motion.div className="album__page"
+        initial={{ opacity: 0}}
+        animate={{ opacity: 1}}
+        exit={{ opacity: 0}} >
                 <div>
                     <AlbumInfo info={albumInfo} accessToken={accessToken} chooseTrack={chooseTrack} />
                 </div>
@@ -39,7 +44,7 @@ function Album({ accessToken, chooseTrack }) {
                         <AlbumTracks track={item} chooseTrack={chooseTrack} />
                     )}
                 </div>
-        </div>
+        </motion.div>
     )
 }
 

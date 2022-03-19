@@ -13,10 +13,15 @@
         }
         .album__text {
             margin-left: 35px;
+            width: 100%;
             h1 {
+                position: relative;
+                background: none;
                 margin-top: 12px;
+                width: 80%;
+                z-index: 2;
                 color: $offWhite;
-                font-size: 4rem;
+                font-size: 3.5rem;
                 font-family: 'Helvetica Neue'
             }
             h2 {

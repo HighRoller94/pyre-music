@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDataLayerValue } from '../DataLayer'
 import SpotifyWebApi from 'spotify-web-api-node'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+
+import { motion } from 'framer-motion/dist/framer-motion'
 
 import MyPlaylists from '../components/MyPlaylists'
 import MyAlbums from '../components/MyAlbums'
@@ -45,7 +47,10 @@ function Library({ chooseTrack, accessToken }) {
     }
 
     return (
-        <div className="library">
+        <motion.div className="library"
+        initial={{ opacity: 0}}
+        animate={{ opacity: 1}}
+        exit={{ opacity: 0}}>
             <div className="library__playlists">
                 <div className="library__header">
                     <h1>Saved Playlists</h1>
@@ -66,7 +71,7 @@ function Library({ chooseTrack, accessToken }) {
                     )}
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

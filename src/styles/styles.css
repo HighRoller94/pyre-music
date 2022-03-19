@@ -240,7 +240,7 @@
   border-radius: 20px;
   font-size: 3rem;
   color: #FB7E2C;
-  background-color: #4A4A4A;
+  background-color: #555555;
   -webkit-transition: 200ms ease-in;
   transition: 200ms ease-in;
 }
@@ -413,18 +413,20 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 40px;
+  margin-top: 2.3rem;
   margin-left: -20px;
   z-index: 2;
 }
 
 .home .home__gridone .recent__artists {
+  margin-left: -.5rem;
   margin-top: 10px;
   font-size: 1rem;
 }
 
 .home .home__gridone .recent__artists h2 {
-  margin-top: 15px;
+  margin-left: .5rem;
+  margin-top: 1.5rem;
   font-size: 3.5rem;
   font-family: 'Helvetica Neue';
 }
@@ -520,7 +522,7 @@
   color: #f1f1f1;
   margin-left: 20px;
   width: calc(75%);
-  margin-top: 10px;
+  margin-top: 1rem;
   font-size: 1rem;
   font-family: 'Helvetica';
   position: relative;
@@ -610,26 +612,8 @@
       grid-template-columns: repeat(auto-fit, minmax(50%, 50%));
 }
 
-.favs__page .fav__playlists {
-  margin-top: 50px;
-}
-
-.favs__page .fav__playlists h1 {
-  color: #f1f1f1;
-  font-size: 2.5rem;
-  font-family: 'Helvetica Neue';
-}
-
-.favs__page .fav__playlists .playlists {
-  display: -ms-grid;
-  display: grid;
-  margin-top: 50px;
-  -ms-grid-columns: (minmax(100px, 199px))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(100px, 199px));
-}
-
 .favs__page .followed__artists {
-  margin-top: 20px;
+  margin-top: 3rem;
   padding-bottom: 50px;
 }
 
@@ -643,7 +627,7 @@
   margin-left: -20px;
   display: -ms-grid;
   display: grid;
-  margin-top: 50px;
+  margin-top: 2.5rem;
   -ms-grid-columns: (minmax(100px, 199px))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(100px, 199px));
 }
@@ -1071,7 +1055,7 @@
 
 .artist__page {
   margin-left: 210px;
-  padding-bottom: 200px;
+  padding-bottom: 10rem;
 }
 
 .artist__page .artist__tracks {
@@ -2308,7 +2292,7 @@
   z-index: 2;
   width: 100%;
   margin-left: 20px;
-  margin: 10px 20px;
+  margin: 0 20px 10px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

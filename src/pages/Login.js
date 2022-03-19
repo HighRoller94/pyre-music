@@ -30,8 +30,10 @@ const loginURL = `${authEndpoint}?client_id=${clientId}&response_type=code&redir
 
 function Login() {
     return (
-        <div className="login">
-            <a className="login__button" href={loginURL}>Login with Spotify</a>
+        <div className="login__page">
+            <div className="login__container">
+                <a className="login__button" href={loginURL}>Login with Spotify</a>
+            </div>
         </div>
     )
 }
