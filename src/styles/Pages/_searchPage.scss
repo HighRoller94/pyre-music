@@ -1,0 +1,68 @@
+.search__page {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 90%;
+    margin: 0;
+    padding: 7rem 4rem;
+    z-index: 10;
+    background-color: black;
+    margin-top: -10px;
+    padding-bottom: 100px;
+    h1 {
+        color: white;
+        font-size: 6rem;
+        font-family: 'Helvetica Neue';
+        margin-top: 10px;
+    }
+    h2 {
+        color: white;
+        font-size: 2.5rem;
+        font-family: 'Helvetica Neue';
+        margin-top: 25px;
+    }
+    .search__header {
+        display: flex;
+        .clear__icon {
+            margin-top: 15px;
+            margin-left: 73%;
+            color: white;
+            font-size: 5rem;
+            opacity: 0.8;
+            &:hover {
+                opacity: 1;
+                cursor: pointer;
+            }
+        }
+    }
+    .search__results {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 40px;
+        grid-column-gap: 50px;
+        margin-top: 30px;
+        .search__tracks {
+            display: flex;
+            margin-top: 10px;
+        }
+        .search__artists {
+            h2 {
+                margin-top: -75px;
+                color: white;   
+                margin-left: 20px;
+                margin-bottom: 20px;
+                font-size: 2rem;
+                font-family: 'Helvetica Neue';
+            }
+            .artist__container {
+                display: flex;
+                flex-direction: row;
+            }
+        }
+        
+    }
+    .search__playlists {
+        display: flex;
+        padding-bottom: 20px;
+    }
+}

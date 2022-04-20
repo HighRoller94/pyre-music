@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import SpotifyWebApi from 'spotify-web-api-node'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import SpotifyWebApi from 'spotify-web-api-node';
 
-import { motion } from 'framer-motion/dist/framer-motion'
-
-import ArtistInfo from '../components/ArtistInfo'
-import ArtistTracks from '../components/ArtistTracks'
-import ArtistAlbums from '../components/ArtistAlbums'
-
-import '../styles/styles.scss'
+import ArtistInfo from '../components/ArtistPage/ArtistInfo';
+import ArtistTracks from '../components/ArtistPage/ArtistTracks';
+import ArtistAlbums from '../components/ArtistPage/ArtistAlbums';
 
 const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
@@ -16,35 +12,35 @@ const spotifyApi = new SpotifyWebApi({
 
 function Artist({ accessToken, chooseTrack }) {
     const { id } = useParams();
-    const [artistInfo, setArtistInfo] = useState()
-    const [artistAlbums, setArtistAlbums] = useState([])
-    const [artistTracks, setArtistTracks] = useState([])
+    const [artistInfo, setArtistInfo] = useState();
+    const [artistAlbums, setArtistAlbums] = useState([]);
+    const [artistTracks, setArtistTracks] = useState([]);
 
     useEffect( () => {
-        if (!accessToken) return
-        spotifyApi.setAccessToken(accessToken)
+        if (!accessToken) return;
+        spotifyApi.setAccessToken(accessToken);
         
         spotifyApi.getArtist(`${id}`)
         .then(res => {
             setArtistInfo(res)
-        })
+        });
+
         spotifyApi.getArtistTopTracks(`${id}`, 'GB')
         .then(res => {
             setArtistTracks(res.body.tracks)
-        })
+        });
+
         spotifyApi.getArtistAlbums(`${id}`)
         .then(res => {
             setArtistAlbums(res.body.items)
-        })
+        });
+
     }, [accessToken, id])
 
-    const topTracks = artistTracks.slice(0,6)
+    const topTracks = artistTracks.slice(0,6);
 
     return (
-        <motion.div className="artist__page"
-        initial={{ opacity: 0}}
-        animate={{ opacity: 1}}
-        exit={{ opacity: 0}}>
+        <div className="artist__page">
             <div>
                 <ArtistInfo info={artistInfo} accessToken={accessToken} chooseTrack={chooseTrack}/>
             </div>
@@ -64,7 +60,7 @@ function Artist({ accessToken, chooseTrack }) {
                     )}
                 </div>
             </div>
-        </motion.div>
+        </div>
     )
 }
 

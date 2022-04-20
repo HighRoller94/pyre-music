@@ -1,0 +1,50 @@
+.library {
+    width: 100%;
+    margin: 0;
+    padding: 7rem 4rem;
+    .library__playlists {
+        margin-top: 20px;
+        width: 92%;
+        .library__header {
+            display: flex;
+            align-items: center;
+            h1 {
+                font-size: 4rem;
+                color: $offWhite;
+                font-family: 'Helvetica Neue';
+            }
+            .add__playlist {
+                display: flex;
+                margin-left: 35px;
+                margin-top: 7px;
+                color: $pyreOrange;
+                font-size: 3.3rem;
+                &:hover {
+                    color: orange;
+                    cursor: pointer;
+                    transform: scale(1.08);
+                    transition: 200ms ease-in;
+                }
+            }
+        }
+        .my__playlists {
+            margin-top: 45px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 225px));
+            grid-column-gap: 20px;
+        }
+    }
+    .library__albums {
+        margin-top: 20px;
+        h1 {
+            font-size: 2.5rem;
+            color: $offWhite;
+            font-family: 'Helvetica Neue';
+        }
+        .my__albums {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 237px));
+        }
+    }
+}

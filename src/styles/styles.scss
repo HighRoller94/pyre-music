@@ -1,51 +1,26 @@
-
-$pyreOrange: #ff8800;
+$pyreOrange: #fd9330;
 $background: #1C1C1C;
 $offWhite: #f1f1f1;
 
+@mixin grid {
+    display: grid; 
+    grid-template-columns: 0.2fr 1fr; 
+    grid-template-rows: 0.3fr 2.3fr 0.3fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    ". header"
+    "sidebar main"
+    ". footer"; 
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-@import './login';
-@import './header';
-@import './sidebar';
-@import './options';
-@import './home';
-@import './recentlyplayed';
-@import './recentlyplayedsong';
-@import './recentlyplayedartists';
-@import './favourites';
-@import './topartists';
-@import './footer';
-@import './searchpage';
-@import './searchResult';
-@import './searchedArtist';
-@import './searchedPlaylist';
-@import './artist';
-@import './artistInfo';
-@import './artistTracks';
-@import './artistAlbums';
-@import './library';
-@import './myplaylists';
-@import './myalbums';
-@import './albumPage';
-@import './albumInfo';
-@import './albumTracks';
-@import './playlistInfo';
-@import './playlistTracks';
-@import './playlistPage';
-@import './newPlaylist';
-@import './editPlaylist';
-@import './newplaylistSearch';
-@import './newplaylistTracks';
-@import './followedartist';
-@import './userPage';
-@import './userInfo';
-@import './userPlaylists';
+@import './components/all';
+@import './pages/all';
 
 * {
     margin: 0;
-    background: #0b0b0b;
-    font-family: 'Helvetica';
+    font-family: 'Helvetica', sans-serif;
     body::-webkit-scrollbar {
         display: none;
     }
@@ -53,6 +28,10 @@ $offWhite: #f1f1f1;
         background: none;
         text-decoration: none;
     }
+}
+
+.app {
+    display: flex;
 }
 
 .logo {
@@ -90,6 +69,7 @@ $offWhite: #f1f1f1;
 
 body {
     margin: 0;
+    background-color: #000000;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;

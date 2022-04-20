@@ -1,0 +1,52 @@
+// ALBUM 
+
+@import './AlbumPage/albumInfo';
+@import './AlbumPage/albumTracks';
+
+// ARTIST 
+
+@import './ArtistPage/artistInfo';
+@import './ArtistPage/artistTracks';
+@import './ArtistPage/artistAlbums';
+
+// BASE
+
+@import './Base/footer';
+@import './Base/sidebar';
+@import './Base/header';
+@import './Base/options';
+
+// DASHBOARD
+
+@import './Dashboard/recentlyPlayedSong';
+@import './Dashboard/recentlyPlayedArtists';
+
+// FAVOURITES
+
+@import './FavouritesPage/topArtists';
+@import './FavouritesPage/topTracks';
+@import './FavouritesPage/followedArtist';
+
+// LIBRARY 
+
+@import './LibraryPage/myAlbums';
+@import './LibraryPage/myPlaylists';
+
+// PLAYLIST 
+
+@import './PlaylistPage/playlistInfo';
+@import './PlaylistPage/playlistTracks';
+@import './PlaylistPage/editPlaylist';
+@import './PlaylistPage/newplaylistSearch';
+@import './PlaylistPage/newplaylistTracks';
+
+// SEARCH
+
+@import './SearchPage/searchResult';
+@import './SearchPage/searchedArtist';
+@import './SearchPage/searchedPlaylist';
+
+// USER
+
+@import './User/userInfo';
+@import './User/userPlaylists';

@@ -3,9 +3,9 @@ import { useDataLayerValue } from '../DataLayer'
 import { useParams } from 'react-router-dom'
 import SpotifyWebApi from 'spotify-web-api-node'
 
-import PlaylistInfo from '../components/PlaylistInfo'
-import PlaylistTracks from '../components/PlaylistTracks'
-import PlaylistSearch from '../components/NewPlaylistTrackSearch'
+import PlaylistInfo from '../components/PlaylistPage/PlaylistInfo'
+import PlaylistTracks from '../components/PlaylistPage/PlaylistTracks'
+import PlaylistSearch from '../components/PlaylistPage/NewPlaylistTrackSearch'
 
 import '../styles/styles.scss'
 

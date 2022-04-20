@@ -1,0 +1,38 @@
+.dashboard {
+    display: inline-block;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 6rem 4rem;
+    .recent__row {
+        h1{
+            font-size: 5rem;
+            font-family: 'Helvetica Neue';
+            margin-left: -5px;
+        }
+    }
+    .home__gridone {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        color: white;
+        margin-top: 10px;
+        .recent__items {
+            display: flex;
+            margin-top: 2.3rem;
+            margin-left: -20px;  
+            z-index: 2;      
+        }
+        .recent__artists {
+            margin-left: -.5rem;
+            h2 {
+                margin-left: .5rem;
+                margin-top: 1.5rem;
+                font-size: 3.5rem;
+                font-family: 'Helvetica Neue';
+            }
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+    }
+}

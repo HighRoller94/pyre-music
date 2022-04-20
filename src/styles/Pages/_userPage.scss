@@ -1,0 +1,11 @@
+.user__page {
+    width: 100%;
+    margin: 0;
+    padding: 7rem 4rem;
+    .user__playlists {
+        margin-top: 75px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 235px));
+        grid-column-gap: 20px;
+    }
+}

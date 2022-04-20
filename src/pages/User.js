@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import SpotifyWebApi from 'spotify-web-api-node'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import SpotifyWebApi from 'spotify-web-api-node';
 
-import { motion } from 'framer-motion/dist/framer-motion'
-
-import UserInfo from '../components/UserInfo'
-import UserPlaylists from '../components/UserPlaylists'
-
-import '../styles/styles.scss'
+import UserInfo from '../components/User/UserInfo';
+import UserPlaylists from '../components/User/UserPlaylists';
 
 const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
@@ -16,9 +12,9 @@ const spotifyApi = new SpotifyWebApi({
 function User({ chooseTrack, accessToken }) {
     const { id } = useParams();
     const [userInfo, setUserInfo] = useState()
-    const [userPlaylists, setUserPlaylists] = useState()
-    const [userTopArtists, setUserTopArtists] = useState()
-    const [total, setTotal] = useState()
+    const [userPlaylists, setUserPlaylists] = useState();
+    const [userTopArtists, setUserTopArtists] = useState();
+    const [total, setTotal] = useState();
 
     useEffect(() => {
         if (!accessToken) return
@@ -38,10 +34,7 @@ function User({ chooseTrack, accessToken }) {
     }, [id]);
 
     return (
-        <motion.div className="user__page" 
-        initial={{ opacity: 0}}
-        animate={{ opacity: 1}}
-        exit={{ opacity: 0}}>
+        <div className="user__page">
             <div className="user__info">
                 <UserInfo total={total} info={userInfo} accessToken={accessToken} />
             </div>
@@ -50,7 +43,7 @@ function User({ chooseTrack, accessToken }) {
                     <UserPlaylists track={track} chooseTrack={chooseTrack} />
                 )}
             </div>
-        </motion.div>
+        </div>
     )
 }
 

@@ -1,0 +1,26 @@
+.login__page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 100vh;
+    .login__container {
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.35rem 2rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            background: linear-gradient(90deg, rgba(227,197,45,1) 0%, rgba(255,145,0,1) 100%);
+            text-decoration: none;
+            color: $offWhite;
+            border-radius: 30px;
+            transition: 200ms ease-in;
+            &:hover { 
+                color: $offWhite;
+                background-color: orange;
+            }
+        }
+    }
+}

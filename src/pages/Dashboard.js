@@ -1,28 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import SpotifyWebApi from 'spotify-web-api-node'
-import { useDataLayerValue } from '../DataLayer'
+import React, { useEffect, useState } from 'react';
+import SpotifyWebApi from 'spotify-web-api-node';
 
-import { motion } from 'framer-motion/dist/framer-motion'
-
-import RecentlyPlayedSong from '../components/RecentlyPlayedSong'
-import RecentlyPlayedArtist from '../components/RecentlyPlayedArtists'
-
-import RecentPlaylists from '../components/RecentPlaylists'
-import NewReleases from '../components/NewReleases'
-import FeaturedPlaylists from '../components/FeaturedPlaylists'
-import Categories from '../components/Categories'
-
-import '../styles/styles.scss'
+import RecentlyPlayedSong from '../components/Dashboard/RecentlyPlayedSong';
+import RecentlyPlayedArtist from '../components/Dashboard/RecentlyPlayedArtists';
 
 const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
 });
 
 function Dashboard({ accessToken, chooseTrack }) {
-    const [uniqueSongs, setUniqueSongs] = useState()
-    const uniquePlays = []
-    const [artistInfo, setArtistInfo] = useState()
-    const [topArtists, setTopArtists] = useState()
+    const [uniqueSongs, setUniqueSongs] = useState();
+    const uniquePlays = [];
+    const [artistInfo, setArtistInfo] = useState();
+    const [topArtists, setTopArtists] = useState();
 
     useEffect(() => {
         // Check for access token, if not, return
@@ -58,10 +48,7 @@ function Dashboard({ accessToken, chooseTrack }) {
     const artists = topArtists?.slice(0,8)
 
     return (
-        <motion.div className="home" 
-        initial={{ opacity: 0}}
-        animate={{ opacity: 1}}
-        exit={{ opacity: 0}}>
+        <div class="dashboard">
             <div className="home__gridone">
                 <div className="recent__row">
                     <h1>Jump back in</h1>
@@ -80,19 +67,7 @@ function Dashboard({ accessToken, chooseTrack }) {
                     </div>
                 </div>
             </div>
-            <div className="recent__playlists">
-                <RecentPlaylists chooseTrack={chooseTrack} accessToken={accessToken} />
-            </div>
-            <div className="recommended__artists">
-                <FeaturedPlaylists chooseTrack={chooseTrack} accessToken={accessToken} />
-            </div>
-            <div className="new__releases">
-                <NewReleases chooseTrack={chooseTrack} accessToken={accessToken} />
-            </div>
-            <div>
-                <Categories chooseTrack={chooseTrack} accessToken={accessToken} />
-            </div>
-        </motion.div>
+        </div>
     )
 }
 

@@ -1,13 +1,9 @@
-import React, { useEffect, useState} from 'react'
-import SpotifyWebApi from 'spotify-web-api-node'
+import React, { useEffect, useState} from 'react';
+import SpotifyWebApi from 'spotify-web-api-node';
 
-import { motion } from 'framer-motion/dist/framer-motion'
-
-import TopArtists from '../components/TopArtists'
-import TopTracks from '../components/TopTracks'
-import FollowedArtists from '../components/FollowedArtists'
-
-import '../styles/styles.scss'
+import TopArtists from '../components/FavouritesPage/TopArtists';
+import TopTracks from '../components/FavouritesPage/TopTracks';
+import FollowedArtists from '../components/FavouritesPage/FollowedArtists';
 
 const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
@@ -19,31 +15,28 @@ function Favourites({ chooseTrack, accessToken }) {
     const [followedArtists, setFollowedArtists] = useState()
     
     useEffect(() => {
-        if (!accessToken) return
-        spotifyApi.setAccessToken(accessToken)
+        if (!accessToken) return;
+        spotifyApi.setAccessToken(accessToken);
         spotifyApi.getMyTopArtists()
         .then(res => {
             setTopArtists(res.body.items)
-        })
+        });
         spotifyApi.getMyTopTracks()
         .then(res => {
             setTopTracks(res.body.items)
-        })
+        });
         spotifyApi.getFollowedArtists({ limit : 8})
         .then(res => {
             setFollowedArtists(res.body.artists.items)
-        })
+        });
     }, [accessToken])
 
-    const artists = topArtists?.slice(0,8)
-    const tracks = topTracks?.slice(0,6)
+    const artists = topArtists?.slice(0,8);
+    const tracks = topTracks?.slice(0,6);
 
     console.log(artists)
     return (
-        <motion.div className="favs__page"
-        initial={{ opacity: 0}}
-        animate={{ opacity: 1}}
-        exit={{ opacity: 0}}>
+        <div className="favs__page">
             <div className="fav__artists">
                 <h1>Top Played Artists...</h1>
                 <div className="artists">
@@ -68,7 +61,7 @@ function Favourites({ chooseTrack, accessToken }) {
                     )}
                 </div>
             </div>
-        </motion.div>
+        </div>
     )
 }
 

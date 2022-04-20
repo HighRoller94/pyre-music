@@ -1,23 +1,15 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from 'react';
 
-import SearchResult from '../components/SearchResult'
-import SearchedArtist from '../components/SearchedArtist'
-import SearchedPlaylist from '../components/SearchedPlaylist'
+import SearchResult from '../components/SearchPage/SearchResult';
+import SearchedArtist from '../components/SearchPage/SearchedArtist';
+import SearchedPlaylist from '../components/SearchPage/SearchedPlaylist';
 
-import ClearIcon from '@material-ui/icons/Clear'
-
-import '../styles/styles.scss'
+import ClearIcon from '@material-ui/icons/Clear';
 
 function SearchPage({ trackSearch, chooseTrack, playlistSearch, artistSearch, resetSearch}) {
 
     return (
-        <motion.div 
-        className="search__page" 
-        initial={{ opacity: 0}}
-        animate={{ opacity: 1}}
-        exit={{ opacity: 0}}
-        >
+        <div className="search__page">
             <div className="search__header">
                 <h1>Search</h1>
                 <ClearIcon  className="clear__icon" onClick={resetSearch}/>
@@ -43,7 +35,7 @@ function SearchPage({ trackSearch, chooseTrack, playlistSearch, artistSearch, re
                         <SearchedPlaylist resetSearch={resetSearch} chooseTrack={chooseTrack} track={track} key={track.uri} />
                     ))}
             </div>
-        </motion.div>
+        </div>
     )
 }
 

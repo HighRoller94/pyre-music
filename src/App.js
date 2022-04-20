@@ -4,7 +4,7 @@ import useAuth from './useAuth'
 import { useDataLayerValue } from './DataLayer'
 import SpotifyWebApi from 'spotify-web-api-node';
 import axios from 'axios'
-import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion'
+import { motion, AnimatePresence } from "framer-motion"
 
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
@@ -17,13 +17,12 @@ import Dashboard from './pages/Dashboard'
 import Favourites from './pages/Favourites'
 import Album from './pages/Album'
 import Playlist from './pages/Playlist'
-import Following from './pages/Following'
 import User from './pages/User'
 
-import Header from './components/Header'   
-import Footer from './components/Footer'
-import Sidebar from './components/Sidebar'
-import Options from './components/Options'
+import Header from './components/Base/Header'   
+import Footer from './components/Base/Footer'
+import Sidebar from './components/Base/Sidebar'
+import Options from './components/Base/Options'
 
 import pyreLogo from './assets/images/pyreLogo.png'
 
@@ -111,88 +110,79 @@ function App() {
         <div className="app">
         <Router >
             {code &&
-            <AnimatePresence exitBeforeEnter>
-            <Switch>
-                <Route path="/dashboard">
-                    <Sidebar />
-                    <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                    <Dashboard chooseTrack={chooseTrack} accessToken={accessToken} />
-                    <Options accessToken={accessToken} />
-                    <Footer accessToken={accessToken}/>
-                </Route>
-                <Route path="/library">
-                    <Sidebar />
-                    <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                    <Library chooseTrack={chooseTrack} accessToken={accessToken} />
-                    <Options />
-                    <Footer accessToken={accessToken}/>
-                </Route>
-                <Route path="/artist/:id">
-                    <Sidebar />
-                    <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                    <Artist chooseTrack={chooseTrack} accessToken={accessToken}/>
-                    <Options />
-                    <Footer accessToken={accessToken}/>
-                </Route>
-                <Route path="/album/:id">
-                    <Sidebar />
-                    <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                    <Album chooseTrack={chooseTrack} accessToken={accessToken}/>
-                    <Options />
-                    <Footer accessToken={accessToken}/>
-                </Route>
-                <Route path="/playlist/:id">
-                    <Sidebar />
-                    <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                    <Playlist chooseTrack={chooseTrack} accessToken={accessToken} />
-                    <Options />
-                    <Footer accessToken={accessToken}/>
-                </Route>
-                <Route path="/favourites">
-                    <Sidebar />
-                    <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                    <Favourites chooseTrack={chooseTrack} accessToken={accessToken}/>
-                    <Options />
-                    <Footer accessToken={accessToken}/>
-                </Route>
-                <Route path="/follow">
-                    <Sidebar />
-                    <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                    <Following chooseTrack={chooseTrack} accessToken={accessToken}/>
-                    <Options />
-                    <Footer accessToken={accessToken}/>
-                </Route>
-                <Route path="/user/:id">
-                    <Sidebar />
-                    <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                    <User chooseTrack={chooseTrack} accessToken={accessToken} />
-                    <Options />
-                    <Footer accessToken={accessToken}/>
-                </Route>
-            </Switch>
-            </AnimatePresence>
+                <Switch>
+                    <Route path="/dashboard">
+                        <Sidebar accessToken={accessToken}/>
+                        <Header chooseTrack={chooseTrack} accessToken={accessToken} />
+                        <Dashboard chooseTrack={chooseTrack} accessToken={accessToken} />
+                        <Options />
+                        <Footer accessToken={accessToken}/>
+                    </Route>
+                    <Route path="/library">
+                        <Sidebar accessToken={accessToken}/>
+                        <Header chooseTrack={chooseTrack} accessToken={accessToken} />
+                        <Library chooseTrack={chooseTrack} accessToken={accessToken} />
+                        <Options />
+                        <Footer accessToken={accessToken}/>
+                    </Route>
+                    <Route path="/artist/:id">
+                        <Sidebar accessToken={accessToken}/>
+                        <Header chooseTrack={chooseTrack} accessToken={accessToken} />
+                        <Artist chooseTrack={chooseTrack} accessToken={accessToken}/>
+                        <Options />
+                        <Footer accessToken={accessToken}/>
+                    </Route>
+                    <Route path="/album/:id">
+                        <Sidebar accessToken={accessToken}/>
+                        <Header chooseTrack={chooseTrack} accessToken={accessToken} />
+                        <Album chooseTrack={chooseTrack} accessToken={accessToken}/>
+                        <Options />
+                        <Footer accessToken={accessToken}/>
+                    </Route>
+                    <Route path="/playlist/:id">
+                        <Sidebar accessToken={accessToken}/>
+                        <Header chooseTrack={chooseTrack} accessToken={accessToken} />
+                        <Playlist chooseTrack={chooseTrack} accessToken={accessToken} />
+                        <Options />
+                        <Footer accessToken={accessToken}/>
+                    </Route>
+                    <Route path="/favourites">
+                        <Sidebar accessToken={accessToken}/>
+                        <Header chooseTrack={chooseTrack} accessToken={accessToken} />
+                        <Favourites chooseTrack={chooseTrack} accessToken={accessToken}/>
+                        <Options />
+                        <Footer accessToken={accessToken}/>
+                    </Route>
+                    <Route path="/user/:id">
+                        <Sidebar accessToken={accessToken}/>
+                        <Header chooseTrack={chooseTrack} accessToken={accessToken} />
+                        <User chooseTrack={chooseTrack} accessToken={accessToken} />
+                        <Options />
+                        <Footer accessToken={accessToken}/>
+                    </Route>
+                </Switch>
             }
         </Router>
         {code && 
-        <motion.div
+        <div
         initial={{ opacity: 0}}
         animate={{ opacity: 1}}
         exit={{ opacity: 0}}
         >
             <img className="logo" src={pyreLogo} alt="" /> 
             {show ? (
-                <motion.div 
+                <div 
                 onClick={scrollToTop}
                 initial={{ opacity: 0}}
                 animate={{ opacity: 1}}
                 exit={{ opacity: 1}}
                 className="scroll__icon">
                     <KeyboardArrowUpIcon className="scroll__top"/>
-                </motion.div>
+                </div>
             ) : (
                 null
             )}
-        </motion.div>
+        </div>
         }
         {!code && <Login /> } 
         </div>

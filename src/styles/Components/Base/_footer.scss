@@ -1,0 +1,25 @@
+.footer {
+    position: fixed;
+    grid-area: footer;
+    bottom: 0;
+    left: 0;
+    width: 98.5%;
+    padding: .8rem 1rem;
+    align-items: center;
+    z-index: 99;
+    background-color: #080808;
+    p {
+        color: white;
+        font-family: 'Helvetica';
+        padding: 5px;
+        position: relative;
+        right: 0;
+        margin-bottom: 5px;
+        font-size: 0.8em;
+        opacity: 0.8;
+        &:hover {
+            cursor: pointer;
+            opacity: 1;
+        }
+    }
+}
