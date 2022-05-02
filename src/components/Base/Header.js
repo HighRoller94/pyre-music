@@ -26,21 +26,13 @@ function Header({ accessToken, chooseTrack }) {
     function resetSearch() {
         setSearch('')
     }
-
-    useEffect(() => {
-        if (!accessToken) return
-        spotifyApi.setAccessToken(accessToken)
-        spotifyApi.getMe().then((user) => {
-            dispatch({
-                type: 'SET_USER',
-                user: user
-            })
-        })
-    }, [accessToken])
     
     useEffect(() => {
         if (!search) return setTrackSearch([])
         if (!accessToken) return
+
+        if (!accessToken) return
+        spotifyApi.setAccessToken(accessToken)
 
         spotifyApi.searchTracks(search, { limit: 5 })
         .then(res => {
@@ -62,33 +54,35 @@ function Header({ accessToken, chooseTrack }) {
     return (
         <div>
             <div className="header">
-                <div className="header__left">
-                    <div className="search__input">
-                        <SearchIcon className="search__icon" onClick={setOpenSearch}/>
-                        <input 
-                            placeholder="Search artists..." 
-                            spellCheck="false"
-                            type="text" 
-                            value={search} 
-                            onChange={e => setSearch(e.target.value)}
-                        />
+                <div className="header__container">
+                    <div className="header__top">
+                        <h1>Hey {user?.body.display_name}, what shall we listen to today?</h1>
                     </div>
-                    <div className="nav">
-                        <div className="nav__icons">
-                            <KeyboardArrowLeftIcon onClick={() => history.goBack()} className="nav__iconOne"/>
-                        </div>
-                        <div className="nav__icons">
-                            <KeyboardArrowRightIcon onClick={() => history.goForward()} className="nav__iconTwo"/>
+                    <div className="header__main">
+                        <div className="header__left">
+                            <div className="search__input">
+                                <SearchIcon className="search__icon" onClick={setOpenSearch}/>
+                                <input 
+                                    placeholder="Search artists..." 
+                                    spellCheck="false"
+                                    type="text" 
+                                    value={search} 
+                                    onChange={e => setSearch(e.target.value)}
+                                />
+                            </div>
+                            <div className="nav">
+                                <div className="nav__icons">
+                                    <KeyboardArrowLeftIcon onClick={() => history.goBack()} className="nav__iconOne"/>
+                                </div>
+                                <div className="nav__icons">
+                                    <KeyboardArrowRightIcon onClick={() => history.goForward()} className="nav__iconTwo"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    
                 </div>
-                <div className="header__right">
-                    <h1 className="header__name">Hey {user?.body.display_name}</h1>
-                    <Link to={`/user/${user?.body.display_name}`}>
-                    <Avatar style={{ width: 70, height: 70 }} src={user?.body.images[0]?.url} />
-                    </Link>
                 </div>
-            </div>
             {search ? <SearchPage resetSearch={resetSearch} chooseTrack={chooseTrack} trackSearch={trackSearch} playlistSearch={playlistSearch} artistSearch={artistSearch} /> : null}
         </div>
         )
