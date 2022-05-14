@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
-import { useDataLayerValue } from '../../DataLayer'
-import { Link } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
-import SpotifyWebApi from 'spotify-web-api-node'
+import React, { useEffect } from 'react';
+import { useDataLayerValue } from '../../DataLayer';
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import SpotifyWebApi from 'spotify-web-api-node';
 
-import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled'
-import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled'
-import RemoveCircleIcon from '@material-ui/icons/RemoveCircle'
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
 const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
