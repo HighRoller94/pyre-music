@@ -1,20 +1,13 @@
 .search__page {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    width: 90%;
-    margin: 0;
-    padding: 7rem 4rem;
+    position: fixed;
+    width: 87vw;
+    height: 80vh;
+    padding: 0rem 4rem;
     z-index: 10;
-    background-color: black;
-    margin-top: -10px;
-    padding-bottom: 100px;
-    h1 {
-        color: white;
-        font-size: 6rem;
-        font-family: 'Helvetica Neue';
-        margin-top: 10px;
-    }
+    background-color: #050505;
+    padding-top: 7rem;
     h2 {
         color: white;
         font-size: 2.5rem;
@@ -23,9 +16,15 @@
     }
     .search__header {
         display: flex;
+        justify-content: space-between;
+        h1 {
+            color: white;
+            font-size: 6rem;
+            font-family: 'Helvetica Neue';
+            margin-top: 10px;
+        }
         .clear__icon {
             margin-top: 15px;
-            margin-left: 73%;
             color: white;
             font-size: 5rem;
             opacity: 0.8;

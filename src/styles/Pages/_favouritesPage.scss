@@ -1,6 +1,9 @@
 .favs__page {
-    padding: 7rem 4rem;
-    width: 100%;
+    padding: 1rem 3rem;
+    width: 90vw;
+    display: flex;
+    padding-bottom: 5rem;
+    flex-direction: column;
     .fav__artists {
         h1 {
             color: $offWhite;

@@ -19,12 +19,12 @@
             width: 100%;
             display: flex;
             padding-bottom: 1rem;
-            border-bottom: 1px solid #1c1c1c;
+            border-bottom: 1px solid black;
             align-items: center;
-            height: 4.2rem;
+            height: 4.5rem;
             justify-content: center;
             .sidebar__logo {
-                height: 3.75rem;
+                height: 4rem;
                 transition: 300ms ease-in-out;
             }
             h1 {
@@ -85,10 +85,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 22rem;
+            margin-top: 22.5rem;
             .user__image {
                 width: 3rem;
-                border-radius: 50%;
                 transition: 200ms ease-in;
             }
             .user__logged {
@@ -97,7 +96,7 @@
         }
         .expand__container {
             border-top: 2px solid #1c1c1c;
-            padding-top: 1.5rem;
+            padding-top: 1rem;
             width: 100%;
             position: absolute;
             bottom: 7rem;
@@ -119,7 +118,7 @@
 
 .sidebar.active {
     width: 11.5rem;
-    min-width: 11.5rem;
+    min-width: 12rem;
     .sidebar__menu {
         display: flex;
         flex-direction: column;
@@ -132,10 +131,10 @@
             border-bottom: 1px solid black;
             align-items: center;
             justify-content: center;
-            height: 4.2rem;
-            margin-left: -.2rem;
+            height: 4.5rem;
+            margin-left: -.5rem;
             .sidebar__logo {
-                height: 3rem;
+                height: 3.5rem;
             }
             h1 {
                 display: flex;
@@ -154,10 +153,9 @@
             align-items: center;
             justify-content: center;
             margin-left: -.5rem;
-            margin-top: 22rem;
+            margin-top: 22.5rem;
             .user__image {
                 width: 3.5rem;
-                border-radius: 50%;
             }
             .user__logged {
                 display: block;
@@ -225,7 +223,7 @@
         }
         .expand__container {
             border-top: 2px solid #1c1c1c;
-            padding-top: 1.5rem;
+            padding-top: 1rem;
             width: 100%;
             position: absolute;
             bottom: 7rem;

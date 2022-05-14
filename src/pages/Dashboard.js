@@ -53,7 +53,7 @@ function Dashboard({ accessToken, chooseTrack }) {
         <div class="dashboard">
             <div className="home__gridone">
                 <div className="recent__row">
-                    <h1>Jump back in</h1>
+                    <h1>Shall we jump back in?</h1>
                     <div className="recent__items">
                         {uniqueSongs?.map((track =>
                                 <RecentlyPlayedSong chooseTrack={chooseTrack} track={track}/>

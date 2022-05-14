@@ -9,15 +9,17 @@ import Options from './Options/Options';
 function Layout({ accessToken, chooseTrack }) {
     return (
         <div className="layout">
-            <div>
-            <Header chooseTrack={chooseTrack} />
-            <Sidebar accessToken={accessToken} />
-            <Options />
-            <Footer accessToken={accessToken} />
+            <div className="layout">
+                <Sidebar accessToken={accessToken} />
+                <div className="layout__content">
+                    <Header chooseTrack={chooseTrack} accessToken={accessToken}/>
+                    <Outlet />
+                    <Options />
+                </div>
+                <Footer accessToken={accessToken} />
+            </div>
+            
         </div>
-        <Outlet />
-        </div>
-        
     )
 }
 

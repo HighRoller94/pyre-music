@@ -33,8 +33,8 @@ function Album({ accessToken, chooseTrack }) {
                     <AlbumInfo info={albumInfo} accessToken={accessToken} chooseTrack={chooseTrack} />
                 </div>
                 <div className="album__tracks">
-                    {albumTracks?.items.map((item) => 
-                        <AlbumTracks track={item} chooseTrack={chooseTrack} />
+                    {albumTracks?.items.map((item, i) => 
+                        <AlbumTracks index={i} track={item} chooseTrack={chooseTrack} />
                     )}
                 </div>
         </div>

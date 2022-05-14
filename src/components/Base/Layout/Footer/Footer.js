@@ -65,7 +65,7 @@ function Footer({ chooseTrack, accessToken }) {
                     play={playing}
                     uris={playingTrack ? [playingTrack] : []}
                     styles={{
-                        height: 60,
+                        height: 64,
                         color: 'white',
                         bgColor: '#080808',
                         trackNameColor: 'white',

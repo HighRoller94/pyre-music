@@ -1,10 +1,11 @@
-import React from 'react'
-import { useDataLayerValue } from '../../DataLayer'
+import React from 'react';
+import { useDataLayerValue } from '../../DataLayer';
+import { Link } from 'react-router-dom';
 
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
-import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled'
+import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
 
-function AlbumTracks({ track, chooseTrack }) {
+function AlbumTracks({ track, chooseTrack, index }) {
     const [{ playingTrack, playing }, dispatch] = useDataLayerValue();
 
     function handlePlay() {
@@ -31,8 +32,11 @@ function AlbumTracks({ track, chooseTrack }) {
     return (
         <div className="album__track" onDoubleClick={handlePlay}>
             <div className="albumTrackInfo__left">
+                <p>{index + 1}</p>
                 <h1>{track.name}</h1>
-                <h2>{track.artists[0].name}</h2>
+                <Link to={`/artist/${track.artists[0].id}`} styles={{ background: 'none'}}>
+                    <h2>{track.artists[0].name}</h2>
+                </Link>
             </div>
             <div className="albumTrackInfo__right">
                 <h3>{convertTimestamp(track.duration_ms)}</h3>
