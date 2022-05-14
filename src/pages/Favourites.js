@@ -34,7 +34,6 @@ function Favourites({ chooseTrack, accessToken }) {
     const artists = topArtists?.slice(0,8);
     const tracks = topTracks?.slice(0,6);
 
-    console.log(artists)
     return (
         <div className="favs__page">
             <div className="fav__artists">

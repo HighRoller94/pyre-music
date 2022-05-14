@@ -12,10 +12,11 @@ const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
 });
 
-function PlaylistTracks({ updatePlaylist, track, info, chooseTrack, accessToken }) {
+function PlaylistTracks({ index, updatePlaylist, track, info, chooseTrack, accessToken }) {
     const [{ playingTrack, playing, user}, dispatch] = useDataLayerValue();
     const { id } = useParams();
 
+    console.log(track)
     useEffect(() => {
         if (!accessToken) return
         spotifyApi.setAccessToken(accessToken)
@@ -53,17 +54,24 @@ function PlaylistTracks({ updatePlaylist, track, info, chooseTrack, accessToken 
 
     return (
         <div className="playlist__row">
-                <Link to={`/album/${track.track.album.id}`}>
-                    <img className="track__image" src={track?.track.album.images[0]?.url} alt="" />
-                </Link>
             <div className="playlist__track" onDoubleClick={handlePlay}>
                 <div className="track__infoLeft">
+                    <p>{index + 1}</p>
+                    <Link to={`/album/${track.track.album.id}`}>
+                        <img className="track__image" src={track?.track.album.images[0]?.url} alt="" />
+                    </Link>
                     <h1>{track.track.name}</h1>
                     <Link to={`/artist/${track?.track.artists[0].id}`} styles={{ background: 'none'}}>
                         <h2 className="artist__name">{track?.track.artists[0].name}</h2>
                     </Link>
                 </div>
+                <div className="track__infoMid">
+                    <Link to={`/album/${track?.track.album.id}`}>
+                        <p className="track__albumName">{track?.track.album.name}</p>
+                    </Link>
+                </div>
                 <div className="track__infoRight">
+                    
                     <h3>{convertTimestamp(track.track.duration_ms)}</h3>
                     {(track.track.uri != playingTrack || !playing) ?
                             <PlayCircleFilledIcon onClick={handlePlay} className="play__icon" />

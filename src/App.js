@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import useAuth from './useAuth'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import useAuth from './components/Hooks/useAuth'
 import { useDataLayerValue } from './DataLayer'
 import SpotifyWebApi from 'spotify-web-api-node';
 import axios from 'axios'
-import { motion, AnimatePresence } from "framer-motion"
-
+import ScrollToTop from './ScrollToTop'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
-import './styles/styles.scss'
+// PAGES
 
 import Login from './pages/Login'
 import Library from './pages/Library'
@@ -19,11 +18,13 @@ import Album from './pages/Album'
 import Playlist from './pages/Playlist'
 import User from './pages/User'
 
-import Header from './components/Base/Header'   
-import Footer from './components/Base/Footer'
-import Sidebar from './components/Base/Sidebar'
-import Options from './components/Base/Options'
+// LAYOUT
 
+import Layout from './components/Base/Layout/Layout';
+
+// STYLES (+ imports)
+
+import './styles/styles.scss'
 import pyreLogo from './assets/images/pyreLogo.png'
 
 const code = new URLSearchParams(window.location.search).get('code')
@@ -33,7 +34,7 @@ const spotifyApi = new SpotifyWebApi({
 });
 
 function App() {
-    const [{ user }, dispatch] = useDataLayerValue();
+    const [{ user, token }, dispatch] = useDataLayerValue();
     const accessToken = useAuth(code)
     const [playingTrack, setPlayingTrack] = useState()
     const [lyrics, setLyrics] = useState("")
@@ -42,7 +43,6 @@ function App() {
     const scrollNav = () => {
         if (window.scrollY > 400) {
             handleShow(true);
-            console.log('show')
         } else {
             handleShow(false);
         }
@@ -85,6 +85,9 @@ function App() {
                 type: "SET_PLAYING_TRACK",
                 playingTrack: track.uri,
             })
+            spotifyApi.play({
+                uris: [track.uri]
+            })
         } else {
             dispatch({ 
                 type: "SET_PLAYING_TRACK",
@@ -105,70 +108,26 @@ function App() {
         })
     }, [playingTrack])
 
-
     return (
         <div className="app">
         <Router >
+            <ScrollToTop />
             {code &&
-                <Switch>
-                    <Route path="/dashboard">
-                        <Sidebar accessToken={accessToken}/>
-                        <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                        <Dashboard chooseTrack={chooseTrack} accessToken={accessToken} />
-                        <Options />
-                        <Footer accessToken={accessToken}/>
+                <Routes>
+                    <Route element={<Layout accessToken={accessToken} chooseTrack={chooseTrack} />}>
+                        <Route path="dashboard" element={<Dashboard chooseTrack={chooseTrack} accessToken={accessToken} />} />
+                        <Route path="library" element={<Library chooseTrack={chooseTrack} accessToken={accessToken} />} />
+                        <Route path="artist/:id" element={<Artist chooseTrack={chooseTrack} accessToken={accessToken} />} />
+                        <Route path="album/:id" element={<Album chooseTrack={chooseTrack} accessToken={accessToken} />} />
+                        <Route path="playlist/:id" element={<Playlist chooseTrack={chooseTrack} accessToken={accessToken} />} />
+                        <Route path="favourites" element={<Favourites chooseTrack={chooseTrack} accessToken={accessToken} />} />
+                        <Route path="user/:id" element={<User chooseTrack={chooseTrack} accessToken={accessToken} />} />
                     </Route>
-                    <Route path="/library">
-                        <Sidebar accessToken={accessToken}/>
-                        <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                        <Library chooseTrack={chooseTrack} accessToken={accessToken} />
-                        <Options />
-                        <Footer accessToken={accessToken}/>
-                    </Route>
-                    <Route path="/artist/:id">
-                        <Sidebar accessToken={accessToken}/>
-                        <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                        <Artist chooseTrack={chooseTrack} accessToken={accessToken}/>
-                        <Options />
-                        <Footer accessToken={accessToken}/>
-                    </Route>
-                    <Route path="/album/:id">
-                        <Sidebar accessToken={accessToken}/>
-                        <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                        <Album chooseTrack={chooseTrack} accessToken={accessToken}/>
-                        <Options />
-                        <Footer accessToken={accessToken}/>
-                    </Route>
-                    <Route path="/playlist/:id">
-                        <Sidebar accessToken={accessToken}/>
-                        <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                        <Playlist chooseTrack={chooseTrack} accessToken={accessToken} />
-                        <Options />
-                        <Footer accessToken={accessToken}/>
-                    </Route>
-                    <Route path="/favourites">
-                        <Sidebar accessToken={accessToken}/>
-                        <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                        <Favourites chooseTrack={chooseTrack} accessToken={accessToken}/>
-                        <Options />
-                        <Footer accessToken={accessToken}/>
-                    </Route>
-                    <Route path="/user/:id">
-                        <Sidebar accessToken={accessToken}/>
-                        <Header chooseTrack={chooseTrack} accessToken={accessToken} />
-                        <User chooseTrack={chooseTrack} accessToken={accessToken} />
-                        <Options />
-                        <Footer accessToken={accessToken}/>
-                    </Route>
-                </Switch>
+                </Routes>
             }
         </Router>
         {code && 
-        <div
-        initial={{ opacity: 0}}
-        animate={{ opacity: 1}}
-        exit={{ opacity: 0}}
-        >
+        <div>
             <img className="logo" src={pyreLogo} alt="" /> 
             {show ? (
                 <div 

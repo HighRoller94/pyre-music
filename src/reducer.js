@@ -6,20 +6,20 @@ export const initialState = {
     item: null,
     top_artists: null,
     spotify: null,
-    accessToken: null,
 };
 
 const reducer = (state, action) => {  
+    console.log(action)
     switch(action.type) {
-        case 'SET_CODE':
-            return {
-                ...state,
-                code: action.code
-            }
         case 'SET_USER':
             return {
                 ...state, 
                 user: action.user
+            }
+        case 'SET_TOKEN':
+            return {
+                ...state, 
+                token: action.accessToken
             }
         case 'SET_PLAYING_TRACK':
             return {

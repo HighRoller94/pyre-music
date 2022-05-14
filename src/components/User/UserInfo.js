@@ -23,7 +23,6 @@ function UserInfo({ total, info, accessToken }) {
         spotifyApi.isFollowingUsers(userId)
         .then(res => {
             setContains(res?.body[0])
-            console.log(res)
         });
     }, [])
 

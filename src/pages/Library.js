@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDataLayerValue } from '../DataLayer';
 import SpotifyWebApi from 'spotify-web-api-node';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import MyPlaylists from '../components/Library/MyPlaylists';
 import MyAlbums from '../components/Library/MyAlbums';
@@ -13,7 +13,7 @@ const spotifyApi = new SpotifyWebApi({
 });
 
 function Library({ chooseTrack, accessToken }) {
-    const history = useHistory();
+    const navigate = useNavigate();
     const[{ user }, dispatch] = useDataLayerValue();
     const [myPlaylists, setMyPlaylists] = useState();
     const [myAlbums, setMyAlbums] = useState();
@@ -38,7 +38,7 @@ function Library({ chooseTrack, accessToken }) {
         spotifyApi.createPlaylist('My Playlist', { 'description': 'My New playlist', 'public': true})
         .then(res => {
             console.log(res)
-            history.push(`/playlist/${res.body.id}`)
+            navigate(`/playlist/${res.body.id}`)
         })
     };
 

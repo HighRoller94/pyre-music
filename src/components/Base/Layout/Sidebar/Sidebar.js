@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import SpotifyWebApi from 'spotify-web-api-node'
-import { useDataLayerValue } from '../../DataLayer'
+import { useDataLayerValue } from '../../../../DataLayer'
 
-import pyreLogo from '../../assets/images/pyreLogo.png';
+import pyreLogo from '../../../../assets/images/pyreLogo.png';
 
 import { motion } from 'framer-motion';
 

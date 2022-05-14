@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
+const code = new URLSearchParams(window.location.search).get('code')
+
 export default function useAuth(code) {
     const [accessToken, setAccessToken] = useState()
     const [refreshToken, setRefreshToken] = useState()
@@ -26,11 +28,11 @@ export default function useAuth(code) {
           setAccessToken (res.data.accessToken)
           setExpiresIn(res.data.expiresIn)
         })
-        }, (expiresIn - 60) * 1000)
+        }, (expiresIn - 120) * 1000)
 
         return () => clearInterval(interval)
     }, [refreshToken, expiresIn])
 
-    return accessToken
+    return accessToken;
 }
 

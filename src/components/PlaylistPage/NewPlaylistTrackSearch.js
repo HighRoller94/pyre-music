@@ -28,16 +28,14 @@ function PlaylistSearch({ updatePlaylist, accessToken , chooseTrack }) {
 
     return (
         <div className="playlist__search">
-            <div className="playlist__searchLeft">
-                <div className="search__container">
-                    <SearchIcon className="search__icon"/>
-                    <input 
-                        placeholder="Search artists..." 
-                        type="text"
-                        value={search}
-                        onChange={e => setSearch(e.target.value)}
-                    />
-                </div>
+            <div className="search__container">
+                <SearchIcon className="search__icon"/>
+                <input 
+                    placeholder="Search artists..." 
+                    type="text"
+                    value={search}
+                    onChange={e => setSearch(e.target.value)}
+                />
             </div>
             {search ? 
             <div>

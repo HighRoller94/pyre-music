@@ -10,7 +10,7 @@ const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
 });
 
-function RecentlyPlayedArtists({ accessToken, track }) {
+function RecentlyPlayedArtists({ track }) {
     const [{ user, playing, playingTrack }, dispatch] = useDataLayerValue();
     const [playingArtist, setPlayingArtist] = useState()
     const [artistInfo, setArtistInfo] = useState()

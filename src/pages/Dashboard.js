@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SpotifyWebApi from 'spotify-web-api-node';
+import { useDataLayerValue } from '../DataLayer';
 
 import RecentlyPlayedSong from '../components/Dashboard/RecentlyPlayedSong';
 import RecentlyPlayedArtist from '../components/Dashboard/RecentlyPlayedArtists';
@@ -9,6 +10,7 @@ const spotifyApi = new SpotifyWebApi({
 });
 
 function Dashboard({ accessToken, chooseTrack }) {
+    const [{ token }, dispatch] = useDataLayerValue();
     const [uniqueSongs, setUniqueSongs] = useState();
     const uniquePlays = [];
     const [artistInfo, setArtistInfo] = useState();

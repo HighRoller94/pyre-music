@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import SpotifyWebApi from 'spotify-web-api-node'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
-import SearchPage from '../../pages/SearchPage'
-import { useDataLayerValue } from '../../DataLayer'
+import SearchPage from '../../../../pages/SearchPage'
+import { useDataLayerValue } from '../../../../DataLayer'
 
 import SearchIcon from '@material-ui/icons/Search'
-import { Avatar } from '@material-ui/core'
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft'
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight'
 
@@ -15,7 +14,7 @@ const spotifyApi = new SpotifyWebApi({
 });
 
 function Header({ accessToken, chooseTrack }) {
-    const history = useHistory()
+    const navigate = useNavigate()
     const [{ user }, dispatch] = useDataLayerValue()
     const [search, setSearch] = useState("")
     const [trackSearch, setTrackSearch] = useState([])
@@ -72,10 +71,10 @@ function Header({ accessToken, chooseTrack }) {
                             </div>
                             <div className="nav">
                                 <div className="nav__icons">
-                                    <KeyboardArrowLeftIcon onClick={() => history.goBack()} className="nav__iconOne"/>
+                                    <KeyboardArrowLeftIcon onClick={() => navigate(-1)} className="nav__iconOne"/>
                                 </div>
                                 <div className="nav__icons">
-                                    <KeyboardArrowRightIcon onClick={() => history.goForward()} className="nav__iconTwo"/>
+                                    <KeyboardArrowRightIcon onClick={() => navigate(+1)} className="nav__iconTwo"/>
                                 </div>
                             </div>
                         </div>

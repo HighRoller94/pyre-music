@@ -24,18 +24,16 @@ function RecentlyPlayedSong({ track, chooseTrack }) {
     }
 
     return (
-        <div>
-            <div className="recent__song">
-                <img src={track.album.images[0].url} alt="" />
-                <Link to={`/album/${track?.album.id}`}>
-                    <p>{track.name}</p>
-                </Link>
-                {(track.uri != playingTrack || !playing) ?
-                    <PlayCircleFilledIcon onClick={handlePlay} className="play__icon"/>
-                : 
-                    <PauseCircleFilledIcon onClick={handlePause} className="play__icon"/>
-                }
-            </div>
+        <div className="recent__song">
+            <img src={track.album.images[0].url} alt="" />
+            <Link to={`/album/${track?.album.id}`}>
+                <p>{track.name}</p>
+            </Link>
+            {(track.uri != playingTrack || !playing) ?
+                <PlayCircleFilledIcon onClick={handlePlay} className="play__icon"/>
+            : 
+                <PauseCircleFilledIcon onClick={handlePause} className="play__icon"/>
+            }
         </div>
     )
 }

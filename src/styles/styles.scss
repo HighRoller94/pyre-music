@@ -2,17 +2,6 @@ $pyreOrange: #fd9330;
 $background: #1C1C1C;
 $offWhite: #f1f1f1;
 
-@mixin grid {
-    display: grid; 
-    grid-template-columns: 0.2fr 1fr; 
-    grid-template-rows: 0.3fr 2.3fr 0.3fr; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-    ". header"
-    "sidebar main"
-    ". footer"; 
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 @import './components/all';
@@ -29,14 +18,18 @@ $offWhite: #f1f1f1;
         text-decoration: none;
     }
 }
-
+.layout {
+    display: flex;
+}
 .app {
     display: flex;
 }
 
 .logo {
+    z-index: 999;
     position: fixed;
-    top: 0;
+    right: 10rem;
+    top: 7rem;
     margin-top: 10%;
     width: 500px;
     margin-left: 60%;
@@ -69,7 +62,7 @@ $offWhite: #f1f1f1;
 
 body {
     margin: 0;
-    background-color: #000000;
+    background-color: #050505;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;

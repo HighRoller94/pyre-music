@@ -1,47 +1,50 @@
 .playlist__row {
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 1rem;
     position: relative;
+    width: 100%;
     background: none;
     z-index: 2;
     opacity: 0.8;
-    .track__image {
-        margin-top: 3px;
-        width: 50px;
-        height: 50px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-right: 15px;
-    }
     .playlist__track {
         display: flex;
         align-items: center;
-        width: calc(86.5%);
-        transition: 200ms ease-in;
+        justify-content: space-between;
+        width: 100%;
+        height: 3.5rem;
         background-color: #1c1c1c;
-        border-radius: 10px;
-        img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-top-left-radius: 8px;
-            border-bottom-left-radius: 8px;
-        }
         &:hover {
-            background-color: #292929;
+            background-color: #424242;
             opacity: 1;
         }
         .track__infoLeft {
             display: flex;
             color: $offWhite;
-            padding: 14px 0;
-            background: none;
+            justify-content: left;
             align-items: center;
+            flex: 50%;
+            p {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 1.3rem;
+                color: white;
+                font-size: 1rem;
+                opacity: .7;
+                width: .7rem;
+            }
+            .track__image {
+                margin-top: 3px;
+                width: 40px;
+                height: 6%;
+                object-fit: cover;
+                margin-right: 15px;
+            }
             h1 {
                 font-size: 1.2rem;
                 background: none;
-                margin-left: 15px;
+                margin-left: 0;
             }
             h2 {
                 font-weight: 300;
@@ -52,16 +55,23 @@
                 color: $offWhite;
                 background: none;
             }
-            a{
-                background: none;
+        }
+        .track__infoMid {
+            flex: 30%;
+            display: flex;
+            justify-content: flex-start;
+            text-align: left;
+            align-items: flex-start;
+            .track__albumName {
+                color: $offWhite;
+                opacity: 0.5;
             }
         }
         .track__infoRight {
             display: flex;
-            align-items: center;
             justify-content: right;
-            margin-left: auto;
-            background: none;
+            align-items: center;
+            flex: 20%;
             h3 {
                 color: $offWhite;
                 margin-right: 20px;
@@ -69,13 +79,12 @@
                 font-size: 1rem;
             }
             .play__icon {
-                margin-right: 20px;
-                font-size: 2.5rem;
+                margin-right: .75rem;
+                font-size: 2rem;
                 background: none;
                 color: $pyreOrange;
                 &:hover {
                     color: orange;
-                    cursor: pointer;
                     transform: scale(1.08);
                     transition: 200ms ease-in;
                 }
@@ -87,7 +96,6 @@
                 color: $pyreOrange;
                 &:hover {
                     color: orange;
-                    cursor: pointer;
                     transform: scale(1.08);
                     transition: 200ms ease-in;
                 }

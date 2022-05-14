@@ -2,7 +2,7 @@
     height: 100vh;
     position: sticky;
     grid-area: sidebar;
-    right: 0;
+    left: 0;
     top: 0;
     width: 5rem;
     z-index: 99;
@@ -233,8 +233,10 @@
             justify-content: center;
             align-items: center;
             .expandBtn {
+                margin-left: 6rem;
                 font-size: 2rem;
                 transform: rotate(-90deg);
+                transition: 300ms ease-in-out;
                 &:hover {
                     cursor: pointer;
                     color: white;
