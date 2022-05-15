@@ -1,14 +1,16 @@
 .playlist__search {
     padding-bottom: 150px;
     display: flex;
-    width: 95%;
+    flex-direction: column;
+    width: 100%;
     z-index: 2;
-    margin-top: 2.5rem;
+    margin: 2.5rem 0;
     .search__container {
         display: flex;
         align-items: center;
         justify-content: right;
         margin-left: auto;
+        margin-bottom: 1.5rem;
         z-index: 2;
         opacity: 1;
         .search__icon {
