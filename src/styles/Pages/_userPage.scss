@@ -4,9 +4,9 @@
     padding: 0rem 3rem;
     padding-bottom: 8rem;
     .user__playlists {
-        margin-top: 75px;
+        margin-top: 5rem;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 235px));
-        grid-column-gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 225px));
+        gap: 2.5rem;
     }
 }

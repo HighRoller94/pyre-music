@@ -7,7 +7,7 @@ import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
 
 import noImage from '../../assets/images/noImage.jpg';
 
-function MyPlaylists({ chooseTrack, track }) {
+function Playlist({ chooseTrack, track }) {
     const [{ playingTrack, playing}, dispatch] = useDataLayerValue();
     const [image, setImage] = useState();
 
@@ -33,21 +33,23 @@ function MyPlaylists({ chooseTrack, track }) {
             setImage(track.images[0].url)
         }
     }, []);
-
+    
     return (
         <div className="playlist__container">
-            <div className="playlist" style={{ width: 200, height: 200, backgroundImage: `url(${image})`, backgroundSize: 'cover'}}>
+            <div className="playlist">
+                <img className="playlist__image" src={image} alt="Playlist Image" />
                     {(track?.uri != playingTrack || !playing) ?
                         <PlayCircleFilledIcon onClick={handlePlay} track={track} className="play__icon"/>
                     : 
                         <PauseCircleFilledIcon onClick={handlePause} className="play__icon"/>
                     }
+                <Link to={`/playlist/${track?.id}`}>
+                    <p className="playlist__name">{track.name}</p>
+                    <p className="playlist__owner">By {track?.owner.display_name}</p>
+                </Link>
             </div>
-            <Link to={`/playlist/${track?.id}`}>
-                <p>{track.name}</p>
-            </Link>
         </div>
     )
 }
 
-export default MyPlaylists
+export default Playlist
