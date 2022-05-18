@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import useAuth from './components/Hooks/useAuth'
-import { useDataLayerValue } from './DataLayer'
+import useAuth from './components/Hooks/useAuth';
+import { useDataLayerValue } from './DataLayer';
 import SpotifyWebApi from 'spotify-web-api-node';
 import axios from 'axios'
-import ScrollToTop from './ScrollToTop'
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+
+import { ToastContainer, Slide } from 'react-toastify';
+
+import ScrollToTop from './ScrollToTop';
 
 // PAGES
 
-import Login from './pages/Login'
-import Library from './pages/Library'
-import Artist from './pages/Artist'
-import Dashboard from './pages/Dashboard'
-import Favourites from './pages/Favourites'
-import Album from './pages/Album'
-import Playlist from './pages/Playlist'
-import User from './pages/User'
+import Login from './pages/Login';
+import Library from './pages/Library';
+import Artist from './pages/Artist';
+import Dashboard from './pages/Dashboard';
+import Favourites from './pages/Favourites';
+import Album from './pages/Album';
+import Playlist from './pages/Playlist';
+import User from './pages/User';
 
 // LAYOUT
 
@@ -24,8 +26,10 @@ import Layout from './components/Base/Layout/Layout';
 
 // STYLES (+ imports)
 
-import './styles/styles.scss'
-import pyreLogo from './assets/images/pyreLogo.png'
+import 'react-toastify/dist/ReactToastify.css';
+import './styles/styles.scss';
+import pyreLogo from './assets/images/pyreLogo.png';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 const code = new URLSearchParams(window.location.search).get('code')
 
@@ -64,10 +68,6 @@ function App() {
         if (!code) return
         if (!accessToken) return
         spotifyApi.setAccessToken(accessToken)
-        dispatch({
-            type: "SET_CODE",
-            code: code
-        })
     }, [accessToken])
 
     function chooseTrack(track) {
@@ -84,9 +84,6 @@ function App() {
             dispatch({ 
                 type: "SET_PLAYING_TRACK",
                 playingTrack: track.uri,
-            })
-            spotifyApi.play({
-                uris: [track.uri]
             })
         } else {
             dispatch({ 
@@ -111,6 +108,16 @@ function App() {
     return (
         <div className="app">
         <Router >
+            <ToastContainer 
+                closeButton={false}
+                autoClose={2000}
+                transition={Slide}
+                limit={1}
+                hideProgressBar="true"
+                position="bottom-center" 
+                className="toast__container" 
+                toastClassName="follow__toast"
+            />
             <ScrollToTop />
             {code &&
                 <Routes>

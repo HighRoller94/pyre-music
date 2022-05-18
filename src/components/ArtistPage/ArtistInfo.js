@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDataLayerValue } from '../../DataLayer'
 import { useParams } from 'react-router-dom'
 import SpotifyWebApi from 'spotify-web-api-node'
+import { toast } from 'react-toastify';
 
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled'
@@ -19,6 +20,39 @@ function ArtistInfo({ info, chooseTrack, accessToken }) {
     const { id } = useParams();
     const [contains, setContains] = useState()
 
+    const ArtistFollowToast = () => {
+        return (
+            <div className="follow__toast">
+                <p>Now following {info?.body.name}</p>
+            </div>
+        )
+    };
+
+    const displayFollowMsg = () => {
+        toast(
+            ArtistFollowToast, {
+                autoClose: 2000
+            }
+        );
+    }
+
+    const ArtistUnfollowedToast = () => {
+        return (
+            <div className="follow__toast">
+                <p>No longer following {info?.body.name}</p>
+            </div>
+        )
+    };
+
+    const displayUnfollowedMsg = () => {
+        toast(
+            ArtistUnfollowedToast, {
+                autoClose: 2000,
+                toastId: "1"
+            }
+        )
+    }
+    
     useEffect(() => {
         if (!accessToken) return
         spotifyApi.setAccessToken(accessToken)
@@ -33,8 +67,10 @@ function ArtistInfo({ info, chooseTrack, accessToken }) {
     function followArtist() {
         spotifyApi.followArtists([`${id}`])
         .then(res => {
-            setContains(true)
+            setContains(true);
+            console.log('following')
         })
+        displayFollowMsg();
     }
 
     function unfollowArtist() {
@@ -42,6 +78,7 @@ function ArtistInfo({ info, chooseTrack, accessToken }) {
         .then(res => {
             setContains(false)
         })
+        displayUnfollowedMsg();
     }
 
     function handlePlay() {

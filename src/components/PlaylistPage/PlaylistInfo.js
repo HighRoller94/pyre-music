@@ -3,6 +3,7 @@ import { useDataLayerValue } from '../../DataLayer'
 import SpotifyWebApi from 'spotify-web-api-node'
 import { Link, useParams } from 'react-router-dom'
 import EditPlaylist from './EditPlaylist'
+import { toast } from 'react-toastify';
 
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled'
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled'
@@ -22,7 +23,40 @@ function PlaylistInfo({ updatePlaylist, info, chooseTrack, accessToken, code}) {
     const { id } = useParams();
     const [contains, setContains] = useState()
     const [open, setOpen] = useState(false)
-    
+
+    const addPlaylistToast = () => {
+        return (
+            <div className="follow__toast">
+                <p>Added to library</p>
+            </div>
+        )
+    };
+
+    const displayFollowMsg = () => {
+        toast(
+            addPlaylistToast, {
+                autoClose: 2000
+            }
+        );
+    }
+
+    const removePlaylistToast = () => {
+        return (
+            <div className="follow__toast">
+                <p>Removed from your library</p>
+            </div>
+        )
+    };
+
+    const displayUnfollowedMsg = () => {
+        toast(
+            removePlaylistToast, {
+                autoClose: 2000,
+                toastId: "1"
+            }
+        )
+    }
+
     useEffect(() => {
         if (!accessToken) return
         spotifyApi.setAccessToken(accessToken)
@@ -51,6 +85,7 @@ function PlaylistInfo({ updatePlaylist, info, chooseTrack, accessToken, code}) {
         }, function(err) {
             console.log('Something went wrong!', err);
         });
+        displayFollowMsg();
     }
 
     function unfollowPlaylist() {
@@ -60,6 +95,14 @@ function PlaylistInfo({ updatePlaylist, info, chooseTrack, accessToken, code}) {
             setContains(false)
         }, function(err) {
             console.log('Something went wrong!', err);
+        });
+        displayUnfollowedMsg();
+    }
+
+    const scrollTo = () => {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behaviour: 'smooth'
         });
     }
 
@@ -83,7 +126,7 @@ function PlaylistInfo({ updatePlaylist, info, chooseTrack, accessToken, code}) {
                             : 
                                 <PauseCircleFilledIcon onClick={handlePause} className="play__icon"/>
                         }
-                        {info?.body.owner.display_name == user?.body.id ? (
+                        {info?.body.owner.id == user?.body.id ? (
                             <EditSharpIcon className="edit__icon" onClick={() => setOpen(true)} />   
                         ) : (
                         <div>
@@ -97,7 +140,21 @@ function PlaylistInfo({ updatePlaylist, info, chooseTrack, accessToken, code}) {
                     </div>
                 </div>
             </div>
-            <p>{info?.body.tracks.total} tracks · </p>
+            <div className="playlist__count">
+                <p>{info?.body.tracks.total} tracks · </p>
+                {info?.body.owner.id == user?.body.id ? ( 
+                    <h4 onClick={scrollTo}>Add to this playlist</h4>
+                ) : (
+                    <div>
+                        {info?.body.public ? (
+                            <h4>Public Playlist</h4>
+                        ) :(
+                            null
+                        )}
+                    </div>
+                )}
+                
+            </div>
             <EditPlaylist code={code} updatePlaylist={updatePlaylist} open={open} info={info} setOpen={setOpen} accessToken={accessToken} />
         </div>
     )
