@@ -1,5 +1,7 @@
 import React from 'react'
 
+import pyreLogo from '../assets/images/pyreLogo.png';
+
 import '../styles/styles.scss'
 
 const authEndpoint = "http://accounts.spotify.com/authorize";
@@ -32,6 +34,15 @@ function Login() {
     return (
         <div className="login__page">
             <div className="login__container">
+                <div className="login__logo">
+                    <img src={pyreLogo} alt="Logo" />
+                    <h1>Pyre</h1>
+                </div>
+                <h1>Log in to continue.</h1>
+                <a href="https://www.spotify.com/uk/">
+                    <h2>Don't have an account?<span>SIGNUP</span></h2>
+                </a>
+                <div className="divider"></div>
                 <a className="login__button" href={loginURL}>Login with Spotify</a>
             </div>
         </div>
