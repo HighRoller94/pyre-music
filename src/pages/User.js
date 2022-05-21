@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import SpotifyWebApi from 'spotify-web-api-node';
 
+import Playlist from '../components/Base/Playlist';
 import UserInfo from '../components/User/UserInfo';
-import UserPlaylists from '../components/User/UserPlaylists';
 
 const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
@@ -33,14 +33,17 @@ function User({ chooseTrack, accessToken }) {
 
     }, [id]);
 
+    
     return (
         <div className="user__page">
             <div className="user__info">
                 <UserInfo total={total} info={userInfo} accessToken={accessToken} />
             </div>
+            <h1 className="user__playlistsTitle">Public Playlists</h1>
+            <div className="divider"></div>
             <div className="user__playlists">
                 {userPlaylists?.map((track) =>
-                    <UserPlaylists track={track} chooseTrack={chooseTrack} />
+                    <Playlist key={track.id} track={track} chooseTrack={chooseTrack} />
                 )}
             </div>
         </div>

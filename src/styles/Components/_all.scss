@@ -7,7 +7,6 @@
 
 @import './ArtistPage/artistInfo';
 @import './ArtistPage/artistTracks';
-@import './ArtistPage/artistAlbums';
 
 // BASE
 
@@ -16,22 +15,20 @@
 @import './Base/header';
 @import './Base/options';
 @import './Base/layout';
+@import './Base/playlist';
+@import './Base/album';
+@import './Base/artist';
+@import './Base/toast';
 
 // DASHBOARD
 
 @import './Dashboard/recentlyPlayedSong';
-@import './Dashboard/recentlyPlayedArtists';
 
 // FAVOURITES
 
-@import './FavouritesPage/topArtists';
 @import './FavouritesPage/topTracks';
-@import './FavouritesPage/followedArtist';
 
 // LIBRARY 
-
-@import './LibraryPage/myAlbums';
-@import './LibraryPage/myPlaylists';
 
 // PLAYLIST 
 
@@ -50,4 +47,3 @@
 // USER
 
 @import './User/userInfo';
-@import './User/userPlaylists';

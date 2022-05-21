@@ -83,56 +83,56 @@ function EditPlaylist({ updatePlaylist, open, info, setOpen, accessToken }) {
     }
 
     return (
-        <div>
-            <Modal
-                    aria-labelledby="transition-modal-title"
-                    aria-describedby="transition-modal-description"
-                    className={classes.modal}
-                    open={open}
-                    onClose={handleClose}
-                    closeAfterTransition
-                    BackdropComponent={Backdrop}
-                    BackdropProps={{
-                    timeout: 500,
-                    }}
-                >
-                    <Fade in={open}>
-                    <div className="edit__modal">
-                        <h1>Edit Playlist</h1>
-                        <div className="edit__details">
-                            <div className="edit__image">
-                                {preview ? (
-                                    <img src={preview} alt="" onClick={e => hiddenFileInput.current.click()} />
-                                ) : (
-                                    <div>
-                                        {info?.body.images[0]?.url ? (
-                                            <img src={info?.body.images[0]?.url} alt="" onClick={e => hiddenFileInput.current.click()} />
-                                        ) : (
-                                            <img src={noImage} alt="" onClick={e => hiddenFileInput.current.click()} />
-                                        )}
-                                    </div>
-                                )}
-                                <input 
-                                    type="file" 
-                                    style={{ display: "none"}} 
-                                    ref={hiddenFileInput} 
-                                    accept="image/*"
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            <div className="edit__info">
-                                <input type="text" placeholder={info?.body.name} value={name} onChange={e => setName(e.target.value)} />
-                                <textarea rows="8" cols="8" placeholder={info?.body.description} value={details} onChange={e => setDetails(e.target.value)} />
-                            </div>
+        <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                timeout: 500,
+                }}
+            >
+                <Fade in={open}>
+                <div className="edit__modal">
+                    <h1>Edit Playlist</h1>
+                    <div className="edit__details">
+                        <div className="edit__image">
+                            {preview ? (
+                                <img src={preview} alt="" onClick={e => hiddenFileInput.current.click()} />
+                            ) : (
+                                <div>
+                                    {info?.body.images[0]?.url ? (
+                                        <img src={info?.body.images[0]?.url} alt="" onClick={e => hiddenFileInput.current.click()} />
+                                    ) : (
+                                        <img src={noImage} alt="" onClick={e => hiddenFileInput.current.click()} />
+                                    )}
+                                </div>
+                            )}
+                            <input 
+                                type="file" 
+                                style={{ display: "none"}} 
+                                ref={hiddenFileInput} 
+                                accept="image/*"
+                                onChange={handleChange}
+                            />
+                            <p>Change Image</p>
                         </div>
-                        <div className="modal__buttons">
-                            <p onClick={handleClose} >Delete Playlist</p>
-                            <button onClick={() => { uploadImage(); setPlaylistDetails(); }}>Save</button>
+                        <div className="edit__info">
+                            <input type="text" placeholder={info?.body.name} value={name} onChange={e => setName(e.target.value)} />
+                            <textarea rows="8" cols="8" placeholder={info?.body.description} value={details} onChange={e => setDetails(e.target.value)} />
+                            <div className="modal__buttons">
+                                <p onClick={handleClose} >Delete Playlist</p>
+                                <button onClick={() => { uploadImage(); setPlaylistDetails(); }}>Save</button>
+                            </div>
                         </div>
                     </div>
-                </Fade>
-            </Modal>
-        </div>
+                    
+                </div>
+            </Fade>
+        </Modal>
     )
 }
 

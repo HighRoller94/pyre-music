@@ -4,9 +4,9 @@
     grid-area: sidebar;
     left: 0;
     top: 0;
-    width: 5rem;
+    width: 11.5rem;
     z-index: 99;
-    min-width: 5rem;
+    min-width: 11rem;
     background-color: #0c0c0c;
     transition: 300ms ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -23,118 +23,10 @@
             align-items: center;
             height: 4.5rem;
             justify-content: center;
-            .sidebar__logo {
-                height: 4rem;
-                transition: 300ms ease-in-out;
-            }
-            h1 {
-                display: none;
-                transition: 300ms ease-in-out;
-            }
-        }
-        .option {
-            border-top: 1px solid #1c1c1c;
-            border-bottom: 1px solid #1c1c1c;
-            display: flex;
-            position: relative;
-            padding: .3rem 0;
-            align-items: center;
-            height: 3.5rem;
-            width: 95%;
-            background: none;
-            transition: 300ms ease-in-out;
-            border-left: .4rem solid #0c0c0c;
-            .icon {
-                background: none;
-                transition: 300ms ease-in-out;
-                height: 3rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 2.5rem;
-                margin-left: .9rem;
-                color: $pyreOrange;
-                transition: 200ms ease-in;
-                &:hover {
-                    cursor: pointer;
-                }
-            }
-            span {
-                display: none;
-            }
-            &:hover {
-                background-color: #1c1c1c;
-                border-left: .4rem solid #1c1c1c;
-                .icon {
-                    color: rgb(255, 198, 93);
-                }
-            }
-        }
-        .active {
-            border-left: .4rem solid $pyreOrange;
-            background-color: #1c1c1c;
-            .icon {
-                color: white;
-            }
-            span {
-                color: white;
-            }
-        }
-        .user {
-            transition: 300ms ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 22.5rem;
-            .user__image {
-                width: 3rem;
-                transition: 200ms ease-in;
-            }
-            .user__logged {
-                display: none;
-            }
-        }
-        .expand__container {
-            border-top: 2px solid #1c1c1c;
-            padding-top: 1rem;
-            width: 100%;
-            position: absolute;
-            bottom: 7rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .expandBtn {
-                font-size: 2rem;
-                color: $pyreOrange;
-                transition: 300ms ease-in-out;
-                &:hover {
-                    cursor: pointer;
-                    color: white;
-                }
-            }
-        }
-    }
-}
-
-.sidebar.active {
-    width: 11.5rem;
-    min-width: 12rem;
-    .sidebar__menu {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0;
-        .logo__content {
-            width: 100%;
-            display: flex;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid black;
-            align-items: center;
-            justify-content: center;
-            height: 4.5rem;
             margin-left: -.5rem;
             .sidebar__logo {
                 height: 3.5rem;
+                transition: 300ms ease-in-out;
             }
             h1 {
                 display: flex;
@@ -145,17 +37,80 @@
                 font-family: 'Helvetica Neue', sans-serif;
                 text-transform: uppercase;
                 letter-spacing: .3rem;
+                transition: 300ms ease-in-out;
+            }
+        }
+        .option {
+            border-top: 1px solid #1c1c1c;
+            border-bottom: 1px solid #1c1c1c;
+            display: flex;          
+            position: relative;
+            padding: .3rem 0;
+
+            align-items: center;
+            height: 3.5rem;
+            width: 100%;
+            background: none;
+            transition: 300ms ease-in-out;
+            .icon {
+                background: none;
+                transition: 300ms ease-in-out;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2.3rem;
+                margin-left: 1.2rem;
+                color: $pyreOrange;
+                transition: 200ms ease-in;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            span {
+                display: flex;
+                margin-left: 1rem;
+                font-size: 1rem;
+                color: $pyreOrange;
+                font-weight: 600;
+            }
+            &:hover {
+                background-color: #1c1c1c;
+                .icon {
+                    color: rgb(255, 198, 93);
+                }
+            }
+        }
+        .active {
+            background-color: #1c1c1c;
+            position: relative;
+            width: 100%;
+            &::before {
+                content: "";
+                background-color: $pyreOrange;
+                height: 100%;
+                left: 0;
+                width: .4rem;
+                position: absolute;
+            }
+            .icon {
+                color: white;
+            }
+            span {
+                color: white;
             }
         }
         .user {
-            margin: 1rem 0;
+            transition: 300ms ease-in-out;
             display: flex;
             align-items: center;
+            margin: 1rem 0;
             justify-content: center;
             margin-left: -.5rem;
-            margin-top: 22.5rem;
+            margin-top: 21.5rem;
             .user__image {
                 width: 3.5rem;
+                transition: 200ms ease-in;
             }
             .user__logged {
                 display: block;
@@ -173,23 +128,71 @@
                 }
             }
         }
+        .expand__container {
+            border-top: 2px solid #1c1c1c;
+            padding-top: 1.3rem;
+            width: 100%;
+            position: absolute;
+            bottom: 7.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .expandBtn {
+                margin-left: 6rem;
+                font-size: 2rem;
+                color: $pyreOrange;
+                transform: rotate(-90deg);
+                transition: 300ms ease-in-out;
+                &:hover {
+                    cursor: pointer;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.sidebar.active {
+    width: 5rem;
+    min-width: 5rem;
+    .sidebar__menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        .logo__content {
+            width: 100%;
+            display: flex;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid black;
+            align-items: center;
+            justify-content: center;
+            height: 4.5rem;
+            margin-left: 0;
+            .sidebar__logo {
+                height: 4rem;
+            }
+            h1 {
+                display: none;
+            }
+        }
         .option {
             display: flex;
             position: relative;
+            justify-content: center;
             align-items: center;
             height: 3.5rem;
             padding: .2rem 0;
             width: 95%;
             background: none;
-            border-left: .4rem solid #0c0c0c;
             .icon {
                 background: none;
                 height: 3rem;
                 display: flex;
+                margin-left: 0;
                 justify-content: center;
                 align-items: center;
-                font-size: 2.25rem;
-                margin-left: 1.3rem;
+                font-size: 2.1rem;
                 color: $pyreOrange;
                 transition: 200ms ease-in;
                 &:hover {
@@ -197,43 +200,45 @@
                 }
             }
             span {
-                display: flex;
-                margin-left: 1rem;
-                font-size: 1rem;
-                color: $pyreOrange;
-                font-weight: 600;
+                display: none;
             }
             &:hover {
                 background-color: #1c1c1c;
-                border-left: .4rem solid #1c1c1c;
                 .icon {
                     color: rgb(255, 198, 93);
                 }
             }
         }
         .active {
-            border-left: .4rem solid $pyreOrange;
             background-color: #1c1c1c;
-            .icon {
-                color: white;
+        }
+        .user {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 0;
+            margin-top: 22.5rem;
+            .user__image {
+                width: 3rem;
             }
-            span {
-                color: white;
+            .user__logged {
+                display: none;
             }
         }
         .expand__container {
             border-top: 2px solid #1c1c1c;
-            padding-top: 1rem;
+            padding-top: 1.3rem;
             width: 100%;
             position: absolute;
-            bottom: 7rem;
+            bottom: 7.5rem;
             display: flex;
             justify-content: center;
             align-items: center;
             .expandBtn {
-                margin-left: 6rem;
+                margin-left: 0;
                 font-size: 2rem;
-                transform: rotate(-90deg);
+                transform: rotate(0);
                 transition: 300ms ease-in-out;
                 &:hover {
                     cursor: pointer;

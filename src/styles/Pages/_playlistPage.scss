@@ -1,11 +1,33 @@
 .playlist__page {
-    width: 85vw;
+    display: flex;
+    flex-direction: column;
     margin: 0;
-    padding: 2rem 2rem;
+    padding: 2rem 3rem;
+    padding-bottom: 10rem;
     .playlist__info {
         width: 100%;
     }
     .playlist__tracks {
-        margin-top: 40px;
+        .track__repo {
+            color: $offWhite;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: .2rem;
+            opacity:  .7;
+            font-size: .8rem;
+            display: flex;
+            margin: 1.5rem auto;
+            width: 97%;
+            justify-content: space-between;
+            .track__info {
+                display: flex;
+                p:nth-child(2) {
+                    margin-left: 4.5rem;
+                }
+            }
+            .album {
+                margin-left: -2.75rem;
+            }
+        }
     }
 }

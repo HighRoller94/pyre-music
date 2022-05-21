@@ -1,35 +1,34 @@
 .artist__page {
-    width: 90%;
     margin: 0;
-    padding: 0rem 4rem;
+    padding: 0rem 3rem 6rem 3rem;
+    margin-top: -1rem;
     .artist__tracks {
-        margin-top: 30px;
-        h1{
+        width: 100%;
+        margin-top: 2rem;
+        z-index: 99;
+        h1 {
             color: $offWhite;
-            font-size: 2.5rem;
-            font-family: 'Helvetica Neue';
+            font-size: 2rem;
+            font-family: $headerFont;
         }
         .top__tracks {
-            margin-top: 25px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(50%, 50%));
+            width: 100%;
+            margin-top: 2rem;
         }
     }
     .artist__albums {
         margin-top: 40px;
-        
         h1 {
             color: $offWhite;
-            font-size: 2.5rem;
-            font-family: 'Helvetica Neue'
+            font-size: 2rem;
+            font-family: $headerFont;
         }
         .albums {
-            width: 100%;
-            margin-top: 45px;
+            margin: 3rem 0;
+            margin-bottom: 4rem;
             display: grid;
-            margin-left: -45px;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 237px));
+            grid-template-columns: repeat(auto-fit, minmax(100px, 207.5px));
+            gap: 3rem;
         }
     }
-    
 }

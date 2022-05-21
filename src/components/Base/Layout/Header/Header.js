@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SpotifyWebApi from 'spotify-web-api-node'
 import { Link, useNavigate } from 'react-router-dom'
+import { SpectrumVisualizer, SpectrumVisualizerTheme } from 'react-audio-visualizers';
 
 import SearchPage from '../../../../pages/SearchPage';
 import { useDataLayerValue } from '../../../../DataLayer'
@@ -43,7 +44,7 @@ function Header({ accessToken, chooseTrack }) {
             setArtistSearch(res.body.artists.items)
         })
 
-        spotifyApi.searchPlaylists(search, {limit: 7})
+        spotifyApi.searchPlaylists(search, {limit: 6})
         .then(res => {
             setPlaylistSearch(res.body.playlists.items)
         })
@@ -80,7 +81,16 @@ function Header({ accessToken, chooseTrack }) {
                 </div>
                 
             </div>
-        {search ? <SearchPage resetSearch={resetSearch} chooseTrack={chooseTrack} trackSearch={trackSearch} playlistSearch={playlistSearch} artistSearch={artistSearch} /> : null}
+            <div className="search">
+                {search ? 
+                <SearchPage 
+                    resetSearch={resetSearch} 
+                    chooseTrack={chooseTrack} 
+                    trackSearch={trackSearch} 
+                    playlistSearch={playlistSearch} 
+                    artistSearch={artistSearch} 
+                /> : null}
+            </div>
         </div>
     )
 }

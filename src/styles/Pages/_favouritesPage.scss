@@ -1,28 +1,60 @@
 .favs__page {
-    padding: 1rem 3rem;
-    width: 90vw;
+    padding: 2rem 3rem;
     display: flex;
     padding-bottom: 5rem;
     flex-direction: column;
     .fav__artists {
-        h1 {
-            color: $offWhite;
-            font-size: 4rem;
-            font-family: 'Helvetica Neue'
+        .fav__artistsHeader {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            color: white;
+            .fav__titles {
+                h1 {
+                    font-size: $headerFontSize;
+                    font-family: $headerFont;
+                    margin-bottom: 1rem;
+                }
+                p {
+                    opacity: .7;
+                }
+            }
+            .see__more {
+                opacity: .7;
+                display: flex;
+                align-items: flex-end;
+            }
         }
         .artists {
+            margin: 2.5rem 0;
             display: grid;
-            margin-top: 50px;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 199px));
+            grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
+            gap: 2.5rem;
         }
     }
     .fav__tracks {
-        width: 98%;
-        margin-top: 25px;
-        h2 {
-            color: $offWhite;
-            font-size: 2.5rem;
-            font-family: 'Helvetica Neue'
+        width: 100%;
+        margin: 1rem 0 1.5rem 0;
+        .fav__tracksHeader {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            color: white;
+            .fav__tracksTitles {
+                h1 {
+                    font-size: $headerFontSize;
+                    font-family: $headerFont;
+                    margin-bottom: 1rem;
+                }
+                p {
+                    opacity: .7;
+                }
+            }
+            .see__more {
+                opacity: .7;
+                display: flex;
+                align-items: flex-end;
+            }
         }
         .tracks {
             margin-top: 25px;
@@ -33,16 +65,32 @@
     .followed__artists {
         margin-top: 3rem;
         padding-bottom: 50px;
-        h1 {
+        .followed__artistsHeader {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
             color: white;
-            font-size: 2.5rem;
-            font-family: 'Helvetica Neue';
+            .followed__titles {
+                h1 {
+                    font-size: $headerFontSize;
+                    font-family: $headerFont;
+                    margin-bottom: 1rem;
+                }
+                p {
+                    opacity: .7;
+                }
+            }
+            .see__more {
+                opacity: .7;
+                display: flex;
+                align-items: flex-end;
+            }
         }
         .f__artists {
-            margin-left: -20px;
+            margin: 2.5rem 0;
             display: grid;
-            margin-top: 2.5rem;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 199px));
+            grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
+            gap: 2.5rem;
         }
     }
 }

@@ -16,7 +16,6 @@ function PlaylistTracks({ index, updatePlaylist, track, info, chooseTrack, acces
     const [{ playingTrack, playing, user}, dispatch] = useDataLayerValue();
     const { id } = useParams();
 
-    console.log(track)
     useEffect(() => {
         if (!accessToken) return
         spotifyApi.setAccessToken(accessToken)
@@ -71,7 +70,6 @@ function PlaylistTracks({ index, updatePlaylist, track, info, chooseTrack, acces
                     </Link>
                 </div>
                 <div className="track__infoRight">
-                    
                     <h3>{convertTimestamp(track.track.duration_ms)}</h3>
                     {(track.track.uri != playingTrack || !playing) ?
                             <PlayCircleFilledIcon onClick={handlePlay} className="play__icon" />

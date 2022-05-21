@@ -1,8 +1,28 @@
 .album__page {
-    width: 90vw;
     margin: 0;
-    padding: 2rem 2rem;
+    padding: 2rem 3rem;
+    padding-bottom: 10rem;
     .album__tracks {
-        margin-top: 50px;
+        .track__repo {
+            color: $offWhite;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: .2rem;
+            opacity:  .7;
+            font-size: .8rem;
+            display: flex;
+            margin: 1.5rem auto;
+            width: 97%;
+            justify-content: space-between;
+            .track__info {
+                display: flex;
+                p:nth-child(2) {
+                    margin-left: 1.2rem;
+                }
+            }
+            .artist {
+                margin-left: -14.5rem;
+            }
+        }
     }
 }

@@ -1,16 +1,21 @@
 .header {
     position: sticky;
+    left: 0;
     display: flex;
     top: 0;
     justify-content: space-between;
     height: 6.6rem;
-    width: 100vw;
-    background-color: rgba(5,5,5, 0.5);
-    backdrop-filter: blur(1rem);
-    z-index: 100;
+    width: 100%;
+    z-index: 98;
+    .search {
+        position: absolute;
+    }
     .header__container {
         width: 95%;
-        margin-left: 2.5rem;
+        padding-left: 2.5rem;
+        background-color: rgba(5,5,5, 0.5);
+        backdrop-filter: blur(1rem);
+        z-index: 99;
         .header__main {
             display: flex;
             width: 100%;
@@ -39,6 +44,7 @@
                     margin-top: .85rem;
                     justify-content: center;
                     align-items: center;
+                    background: none;
                     width: 100%;
                     .search__icon {
                         font-size: 2.3rem;

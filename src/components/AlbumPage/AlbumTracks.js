@@ -34,8 +34,10 @@ function AlbumTracks({ track, chooseTrack, index }) {
             <div className="albumTrackInfo__left">
                 <p>{index + 1}</p>
                 <h1>{track.name}</h1>
+            </div>
+            <div className="albumTrackInfo__mid">
                 <Link to={`/artist/${track.artists[0].id}`} styles={{ background: 'none'}}>
-                    <h2>{track.artists[0].name}</h2>
+                    <p className="albumTrack__artist">{track.artists[0].name}</p>
                 </Link>
             </div>
             <div className="albumTrackInfo__right">

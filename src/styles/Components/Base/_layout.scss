@@ -1,3 +1,9 @@
 .layout {
     display: flex;
+    width: 100%;
+    .outlet {
+        display: flex;
+        flex-direction: column;
+        flex: .94;
+    }
 }

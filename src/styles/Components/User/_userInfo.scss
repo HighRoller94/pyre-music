@@ -3,7 +3,7 @@
     margin-top: 40px;
     display: flex;
     img {
-        width: 200px;
+        width: 225px;
         height: auto;
         object-fit: cover;
     }
@@ -14,7 +14,7 @@
         margin-left: 50px;
         h1 {
             color: white;
-            font-family: 'Helvetica Neue';
+            font-family: $headerFont;
             font-size: 4.5rem;
         }
     }

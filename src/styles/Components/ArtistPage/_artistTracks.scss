@@ -1,43 +1,98 @@
-.track {
+.artist__track {
     display: flex;
-    width: 85%;
-    margin-top: 20px;
-    img {
-        width: 45px;
-        height: 45px;
-        object-fit: cover;
-        border-radius: 7px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1rem;
+    height: 3.5rem;
+    z-index: 99;
+    background-color: #1c1c1c;
+    &:hover {
+        background-color: #3c3c3c;
+        opacity: 1;
     }
-    .track__info {
+    .track__infoLeft {
         display: flex;
+        color: $offWhite;
+        justify-content: left;
         align-items: center;
-        color: white;
-        font-size: 1.1rem;
-        margin-left: 20px;
-        padding: 0 10px;
-        width: 80%;
-        border-radius: 10px;
-        background-color: #1C1C1c;
-        z-index: 2;
-        opacity: 0.8;
+        flex: 50%;
         p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 1.3rem;
+            color: white;
+            font-size: 1rem;
+            opacity: .7;
+            width: .7rem;
+        }
+        .track__image {
+            margin-top: 3px;
+            width: 40px;
+            height: 6%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        .artist__trackName {
+            font-size: 1.2rem;
             background: none;
-            font-family: 'Helvetica';
+            margin-left: 0;
         }
-        &:hover {
-            background-color: #161616;
-            opacity: 1;
-        }
-    }
-    .play__icon {
-        font-size: 3rem;
-        color: $pyreOrange;
-        margin-left: 50px;
-        &:hover {
-            color: orange;
-            cursor: pointer;
-            transform: scale(1.08);
-            transition: 200ms ease-in;
+        h2 {
+            font-weight: 300;
+            margin-top: 3px;
+            margin-left: 20px;
+            opacity: 0.5;
+            font-size: 1rem;
+            color: $offWhite;
+            background: none;
         }
     }
+    .track__infoMid {
+        flex: 30%;
+        display: flex;
+        justify-content: flex-start;
+        text-align: left;
+        align-items: flex-start;
+        .track__albumName {
+            color: $offWhite;
+            opacity: 0.5;
+        }
+    }
+    .track__infoRight {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        flex: 20%;
+        h3 {
+            color: $offWhite;
+            margin-right: 20px;
+            background: none;
+            font-size: 1rem;
+        }
+        .play__icon {
+            margin-right: .75rem;
+            font-size: 2rem;
+            background: none;
+            color: $pyreOrange;
+            &:hover {
+                color: orange;
+                transform: scale(1.08);
+                transition: 200ms ease-in;
+            }
+        }
+        .remove__icon {
+            margin-right: 20px;
+            font-size: 2rem;
+            background: none;
+            color: $pyreOrange;
+            &:hover {
+                color: orange;
+                transform: scale(1.08);
+                transition: 200ms ease-in;
+            }
+        }
+    }
+    
 }

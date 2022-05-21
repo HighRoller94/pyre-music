@@ -1,8 +1,7 @@
 .library {
-    width: 78.3vw;
     margin-top: -.5rem;
     padding: 2rem 3rem;
-    padding-bottom: 6.5rem;
+    padding-bottom: 7.5rem;
     .library__playlists {
         width: 100%;
         .library__header {
@@ -12,7 +11,7 @@
             h1 {
                 font-size: $headerFontSize;
                 color: $offWhite;
-                font-family: 'Helvetica Neue';
+                font-family: $headerFont;
             }
             .add__playlist {
                 display: flex;
@@ -46,7 +45,7 @@
             h1 {
                 font-size: $headerFontSize;
                 color: $offWhite;
-                font-family: 'Helvetica Neue';
+                font-family: $headerFont;
             }
             p {
                 display: flex;

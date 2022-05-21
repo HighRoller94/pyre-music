@@ -12,7 +12,7 @@ const spotifyApi = new SpotifyWebApi({
 });
 
 function Playlist({ updatePlaylist, accessToken, chooseTrack, code}) {
-    const [{ playingTrack, playing, user}, dispatch] = useDataLayerValue()
+    const [{user}, dispatch] = useDataLayerValue()
     const { id } = useParams();
     const [playlistInfo, setPlaylistInfo] = useState()
     const [playlistTracks, setPlaylistTracks] = useState()
@@ -39,12 +39,21 @@ function Playlist({ updatePlaylist, accessToken, chooseTrack, code}) {
             <div className="playlist__info">
                 <PlaylistInfo code={code} updatePlaylist={updatePlaylist} info={playlistInfo} chooseTrack={chooseTrack} accessToken={accessToken} />
             </div>
+            <div className="divider"></div>
             <div layout className="playlist__tracks">
+                <div className="track__repo">
+                    <div className="track__info">
+                        <p>#</p>
+                        <p>Track Title</p>
+                    </div>
+                    <p className="album">Album</p>
+                    <p className="duration">Duration</p>
+                </div>
                 {playlistTracks?.map((track, i) => 
                     <PlaylistTracks index={i} updatePlaylist={updatePlaylist} track={track} info={playlistInfo} chooseTrack={chooseTrack} accessToken={accessToken} />
                 )}
             </div>
-            {playlistInfo?.body.owner.display_name == user?.body.id ? (
+            {playlistInfo?.body.owner.id == user?.body.id ? (
                 <div>
                     <PlaylistSearch updatePlaylist={updatePlaylist} chooseTrack={chooseTrack} accessToken={accessToken} />   
                 </div> 

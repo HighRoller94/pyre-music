@@ -1,10 +1,5 @@
 .playlistInfo {
     background: none;
-    p {
-        margin-top: 50px;
-        font-size: 1.7rem;
-        color: $offWhite;
-    }
     .playlist__info {
         display: flex;
         background: none;
@@ -22,13 +17,15 @@
                 z-index: 5;
                 color: $offWhite;
                 font-size: 3rem;
-                font-family: 'Helvetica Neue'
+                font-family: $headerFont;
             }
             h1 {
                 margin-top: 17px;
                 color: $offWhite;
+                opacity: .5;
+                font-weight: 400;
                 font-size: 2rem;
-                font-family: 'Helvetica Neue'
+                font-family: 'Helvetica', sans-serif;
             }
             .playlist__icons {
                 display: flex;
@@ -75,6 +72,28 @@
             }
         }
     }
+    .playlist__count {
+        display: flex;
+        margin-top: 3rem;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        color: $offWhite;
+        p {
+            font-size: 1.7rem;
+        }
+        h4 {
+            opacity: .7;
+            font-size: 1rem;
+            font-weight: 300;
+            z-index: 2;
+            &:hover {
+                cursor: pointer;
+                opacity: 1;
+            }
+        }
+    }
+    
 }
 
 

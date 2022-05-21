@@ -28,7 +28,7 @@ function SearchResult({ track, chooseTrack, resetSearch }) {
         <div className="search__result">
             <img src={track.album.images[0].url} />
             <Link to={`/artist/${track?.artists[0].id}`} onClick={resetSearch}>
-            <h3>{track.name}</h3>
+                <h3>{track.name}</h3>
             </Link>
             {(track.uri != playingTrack || !playing) ?
                     <PlayCircleFilledIcon onClick={handlePlay} className="play__icon"/>

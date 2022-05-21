@@ -121,7 +121,9 @@ function App() {
             <ScrollToTop />
             {code &&
                 <Routes>
-                    <Route element={<Layout accessToken={accessToken} chooseTrack={chooseTrack} />}>
+                    <Route element={
+                        <Layout accessToken={accessToken} chooseTrack={chooseTrack} />
+                    }>
                         <Route path="dashboard" element={<Dashboard chooseTrack={chooseTrack} accessToken={accessToken} />} />
                         <Route path="library" element={<Library chooseTrack={chooseTrack} accessToken={accessToken} />} />
                         <Route path="artist/:id" element={<Artist chooseTrack={chooseTrack} accessToken={accessToken} />} />

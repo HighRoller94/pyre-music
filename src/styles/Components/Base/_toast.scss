@@ -1,7 +1,7 @@
 .toast__container {
     position: fixed;
     z-index: 10;
-    bottom: 5rem !important;
+    bottom: 6rem !important;
     width: 100%;
     .follow__toast {
         display: flex;
@@ -10,7 +10,7 @@
         justify-content: center;
         box-shadow: none;
         padding: 0;
-        border-radius: .5rem;
+        border-radius: .8rem;
         width: 100%;
         background-color: #2c2c2c;
         p {

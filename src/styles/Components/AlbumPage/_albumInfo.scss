@@ -9,7 +9,6 @@
         img {
             width: 250px;
             height: 250px;
-            border-radius: 15px;
         }
         .album__text {
             margin-left: 35px;
@@ -21,14 +20,14 @@
                 width: 80%;
                 z-index: 2;
                 color: $offWhite;
-                font-size: 3.5rem;
-                font-family: 'Helvetica Neue'
+                font-size: 3rem;
+                font-family: $headerFont;
             }
             h2 {
                 color: $offWhite;
                 margin-top: 10px;
                 font-size: 2rem;
-                font-family: 'Helvetica Neue'
+                font-family: $headerFont;
             }
             .info__icons {
                 display: flex;

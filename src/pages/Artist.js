@@ -4,7 +4,7 @@ import SpotifyWebApi from 'spotify-web-api-node';
 
 import ArtistInfo from '../components/ArtistPage/ArtistInfo';
 import ArtistTracks from '../components/ArtistPage/ArtistTracks';
-import ArtistAlbums from '../components/ArtistPage/ArtistAlbums';
+import Album from '../components/Base/Album';
 
 const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
@@ -37,26 +37,30 @@ function Artist({ accessToken, chooseTrack }) {
 
     }, [accessToken, id])
 
-    const topTracks = artistTracks.slice(0,6);
+    const topTracks = artistTracks.slice(0,5);
 
+    console.log(topTracks)
     return (
         <div className="artist__page">
             <div>
                 <ArtistInfo info={artistInfo} accessToken={accessToken} chooseTrack={chooseTrack}/>
             </div>
+            
             <div className="artist__tracks">
                 <h1>Top Tracks</h1>
+                <div className="divider"></div>
                 <div className="top__tracks">
-                    {topTracks?.map((track) => 
-                        <ArtistTracks chooseTrack={chooseTrack} track={track} />    
+                    {topTracks?.map((track, i) => 
+                        <ArtistTracks key={track.id} index={i} chooseTrack={chooseTrack} track={track} />    
                     )}
                 </div>
             </div>
             <div className="artist__albums">
                 <h1>Albums</h1>
+                <div className="divider"></div>
                 <div className="albums">
                     {artistAlbums?.map((album) => 
-                        <ArtistAlbums chooseTrack={chooseTrack} track={album} />    
+                        <Album key={album.id} chooseTrack={chooseTrack} track={album} />    
                     )}
                 </div>
             </div>

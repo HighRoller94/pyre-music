@@ -153,7 +153,6 @@ function PlaylistInfo({ updatePlaylist, info, chooseTrack, accessToken, code}) {
                         )}
                     </div>
                 )}
-                
             </div>
             <EditPlaylist code={code} updatePlaylist={updatePlaylist} open={open} info={info} setOpen={setOpen} accessToken={accessToken} />
         </div>

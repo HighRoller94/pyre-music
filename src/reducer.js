@@ -8,18 +8,13 @@ export const initialState = {
     spotify: null,
 };
 
-const reducer = (state, action) => {  
-    console.log(action)
+const reducer = (state, action) => {
+    console.log(action)  
     switch(action.type) {
         case 'SET_USER':
             return {
                 ...state, 
                 user: action.user
-            }
-        case 'SET_TOKEN':
-            return {
-                ...state, 
-                token: action.accessToken
             }
         case 'SET_PLAYING_TRACK':
             return {

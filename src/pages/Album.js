@@ -32,7 +32,16 @@ function Album({ accessToken, chooseTrack }) {
                 <div>
                     <AlbumInfo info={albumInfo} accessToken={accessToken} chooseTrack={chooseTrack} />
                 </div>
+                <div className="divider"></div>
                 <div className="album__tracks">
+                    <div className="track__repo">
+                        <div className="track__info">
+                            <p>#</p>
+                            <p>Track Title</p>
+                        </div>
+                        <p className="artist">Artist/s</p>
+                        <p className="duration">Duration</p>
+                    </div>
                     {albumTracks?.items.map((item, i) => 
                         <AlbumTracks index={i} track={item} chooseTrack={chooseTrack} />
                     )}

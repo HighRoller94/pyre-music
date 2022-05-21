@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import SpotifyWebApi from 'spotify-web-api-node';
-import { useDataLayerValue } from '../DataLayer';
 
 import RecentlyPlayedSong from '../components/Dashboard/RecentlyPlayedSong';
-import RecentlyPlayedArtist from '../components/Dashboard/RecentlyPlayedArtists';
+import Artist from '../components/Base/Artist';
 
 const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
 });
 
 function Dashboard({ accessToken, chooseTrack }) {
-    const [{ token }, dispatch] = useDataLayerValue();
     const [uniqueSongs, setUniqueSongs] = useState();
     const uniquePlays = [];
-    const [artistInfo, setArtistInfo] = useState();
+
     const [topArtists, setTopArtists] = useState();
 
     useEffect(() => {
@@ -22,7 +20,7 @@ function Dashboard({ accessToken, chooseTrack }) {
         // Set Access Token from code
         spotifyApi.setAccessToken(accessToken)
 
-        // Get first 15 recently played tracks (enough to ensure 8 unique)
+        // Get first 15 recently played tracks (enough to ensure 8 unique, hopefully)
         spotifyApi.getMyRecentlyPlayedTracks({
             limit: 15
         }).then(res => {
@@ -50,21 +48,23 @@ function Dashboard({ accessToken, chooseTrack }) {
     const artists = topArtists?.slice(0,8)
 
     return (
-        <div class="dashboard">
+        <div className="dashboard">
             <div className="home__gridone">
                 <div className="recent__row">
                     <h1>Shall we jump back in?</h1>
-                    <div className="recent__items">
+                    <div className="divider"></div>
+                    <div className="recent__tracks">
                         {uniqueSongs?.map((track =>
-                                <RecentlyPlayedSong chooseTrack={chooseTrack} track={track}/>
+                                <RecentlyPlayedSong key={track.name} chooseTrack={chooseTrack} track={track}/>
                         ))}
                     </div>
                 </div>
                 <div className="recent__artists">
                     <h2>Artists</h2>
+                    <div className="divider"></div>
                     <div className="recent__items">
                         {artists?.map((track =>
-                                <RecentlyPlayedArtist accessToken={accessToken} chooseTrack={chooseTrack} track={track} />
+                                <Artist key={track.name} accessToken={accessToken} chooseTrack={chooseTrack} track={track} />
                         ))}
                     </div>
                 </div>

@@ -3,10 +3,8 @@ import { useDataLayerValue } from '../DataLayer';
 import SpotifyWebApi from 'spotify-web-api-node';
 import { useNavigate } from 'react-router-dom';
 
-import MyPlaylists from '../components/Library/MyPlaylists';
-import MyAlbums from '../components/Library/MyAlbums';
-
-import AddCircleIcon from '@material-ui/icons/AddCircle';
+import Playlist from '../components/Base/Playlist';
+import Album from '../components/Base/Album';
 
 const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
@@ -22,7 +20,7 @@ function Library({ chooseTrack, accessToken }) {
         if (!accessToken) return;
         spotifyApi.setAccessToken(accessToken);
 
-        spotifyApi.getUserPlaylists(`${user.body.id}`, { limit: 10 })
+        spotifyApi.getUserPlaylists(`${user.body.id}`, { limit: 12 })
         .then(res => {
             setMyPlaylists(res.body.items)
         });
@@ -47,20 +45,25 @@ function Library({ chooseTrack, accessToken }) {
             <div className="library__playlists">
                 <div className="library__header">
                     <h1>Saved Playlists</h1>
-                    <AddCircleIcon className="add__playlist" onClick={createNewPlaylist}/>
+                    <p className="add__playlist" onClick={createNewPlaylist}>Add a new playlist</p>
                 </div>
+                <div className="divider"></div>
                 <div className="my__playlists">
                     {myPlaylists?.map((playlist) =>
-                        <MyPlaylists chooseTrack={chooseTrack} track={playlist} />
+                        <Playlist key={playlist.name} chooseTrack={chooseTrack} track={playlist} />
                     )}
                 </div>
             </div>
             
             <div className="library__albums">
-                <h1>My Albums</h1>
+                <div className="library__albumHeader">
+                    <h1>My Albums</h1>
+                    <p>See all</p>
+                </div>
+                <div className="divider"></div>
                 <div className="my__albums">
                     {myAlbums?.map((album) => 
-                        <MyAlbums chooseTrack={chooseTrack} track={album.album} />
+                        <Album key={album.album.name} chooseTrack={chooseTrack} track={album.album} />
                     )}
                 </div>
             </div>
