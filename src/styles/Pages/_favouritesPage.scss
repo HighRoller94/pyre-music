@@ -59,7 +59,8 @@
         .tracks {
             margin-top: 25px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(50%, 50%));
+            grid-template-columns: repeat(auto-fit, minmax(49.4%, 49.4%));
+            column-gap: 1rem;
         }
     } 
     .followed__artists {
