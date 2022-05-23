@@ -1,11 +1,12 @@
-# Pyre <img src="https://user-images.githubusercontent.com/77104720/157760972-8807961d-44b0-46b0-a509-68a1e2e5bb76.png" align="left" height="48" width="48" >
+
+# React Music Player App
 
 ### [Link to live site](https://pyre-2e47e.web.app/)
 
-## React Music Player App!
-
-### Users must have a premium Spotify account to use Pyre fully!
-
+### For the time being the app is not completely open to the public, so for testing purposes please use the credentials below!
+ 
+Email: pyretest@gmail.com
+Pass: pyretest123
 
 - Music player app built with React with a simple dashboard layout that allows users to log in (through Spotify) and listen to their favourite music 
 
@@ -24,7 +25,7 @@ Pyre utilises react router to switch between components that are invidually sepe
 ### Libraries used -
 
 - Axios
-- React Router Dom
+- React Router Dom v6
 - Spotify Web API Node
 - React Spotify Web Playback
 - Material UI Core + Icons
