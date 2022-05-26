@@ -28,8 +28,9 @@
             grid-template-columns: 1fr 1fr;
             margin-top: 10px;
             .search__tracksContainer {
+                
                 display: flex;
-                margin: 2rem 0;
+                flex-direction: column;
             }
             .search__artistsContainer {
                 margin: 2rem 0;
