@@ -1,53 +1,107 @@
 .recent__song {
     display: flex;
-    flex-direction: column;
-    width: 125px;
-    margin-right: 2rem;
-    transition: 200ms ease-in;
-    img {
-        width: 110px;
-        height: 110px;
-        object-fit: contain;
-        border-radius: 20px;
-        opacity: 0.8;
-        z-index: 2;
+    align-items: center;
+    margin-top: 1rem;
+    position: relative;
+    width: 100%;
+    background: none;
+    z-index: 2;
+    opacity: 0.8;
+    .playlist__track {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 3.5rem;
+        background-color: #1c1c1c;
         &:hover {
+            background-color: #3c3c3c;
             opacity: 1;
-            cursor: pointer;
         }
-    }
-    p {
-        z-index: 5;
-        position: relative;
-        background: none;
-        font-family: 'Helvetica';
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        display: inline-block;
-        color: $offWhite;
-        padding: 5px;
-        width: calc(86%);
-        border-radius: 5px;
-        font-size: 1rem;
-        margin-top:7px;
-        transition: 200ms ease-in;
-        &:hover {
-            cursor: pointer;
+        .track__infoLeft {
+            display: flex;
+            color: $offWhite;
+            justify-content: left;
+            align-items: center;
+            flex: 50%;
+            p {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 1.3rem;
+                color: white;
+                font-size: 1rem;
+                opacity: .7;
+                width: .7rem;
+            }
+            .track__image {
+                margin-top: 3px;
+                width: 40px;
+                height: 6%;
+                object-fit: cover;
+                margin-right: 15px;
+            }
+            h1 {
+                font-size: 1.2rem;
+                background: none;
+                margin-left: 0;
+            }
+            h2 {
+                font-weight: 300;
+                margin-top: 3px;
+                margin-left: 20px;
+                opacity: 0.5;
+                font-size: 1rem;
+                color: $offWhite;
+                background: none;
+            }
         }
-    }
-    .play__icon {
-        margin-top: 7px;
-        font-size: 2.5rem;
-        color: $pyreOrange;
-        transition: 200ms ease-in;
-        z-index: 3;
-        background: none;
-        &:hover {
-            cursor: pointer;
-            color: orange;
-            transform: scale(1.08);
-            transition: 200ms ease-in;
+        .track__infoMid {
+            flex: 30%;
+            display: flex;
+            justify-content: flex-start;
+            text-align: left;
+            align-items: flex-start;
+            .track__albumName {
+                color: $offWhite;
+                opacity: 0.5;
+            }
         }
+        .track__infoRight {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            flex: 20%;
+            h3 {
+                color: $offWhite;
+                margin-right: 20px;
+                background: none;
+                font-size: 1rem;
+            }
+            .play__icon {
+                margin-right: .75rem;
+                font-size: 2rem;
+                background: none;
+                color: $pyreOrange;
+                &:hover {
+                    color: orange;
+                    transform: scale(1.08);
+                    transition: 200ms ease-in;
+                }
+            }
+            .remove__icon {
+                margin-right: 20px;
+                font-size: 2rem;
+                background: none;
+                color: $pyreOrange;
+                &:hover {
+                    color: orange;
+                    transform: scale(1.08);
+                    transition: 200ms ease-in;
+                }
+            }
+        }
+        
     }
 }
+

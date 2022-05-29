@@ -32,7 +32,7 @@ function Dashboard({ accessToken, chooseTrack }) {
                 }
                 // Set unique arrays in new array using set, cut array down to 8
                 let set = new Set(uniquePlays.map(JSON.stringify));
-                let uniqueSongs = Array.from(set).map(JSON.parse).slice(0,8);
+                let uniqueSongs = Array.from(set).map(JSON.parse).slice(0,6);
                 setUniqueSongs(uniqueSongs)
             }
         })
@@ -55,7 +55,7 @@ function Dashboard({ accessToken, chooseTrack }) {
                     <div className="divider"></div>
                     <div className="recent__tracks">
                         {uniqueSongs?.map((track =>
-                                <RecentlyPlayedSong key={track.name} chooseTrack={chooseTrack} track={track}/>
+                            <RecentlyPlayedSong key={track.name} chooseTrack={chooseTrack} track={track}/>
                         ))}
                     </div>
                 </div>
@@ -64,7 +64,7 @@ function Dashboard({ accessToken, chooseTrack }) {
                     <div className="divider"></div>
                     <div className="recent__items">
                         {artists?.map((track =>
-                                <Artist key={track.name} accessToken={accessToken} chooseTrack={chooseTrack} track={track} />
+                            <Artist key={track.name} accessToken={accessToken} chooseTrack={chooseTrack} track={track} />
                         ))}
                     </div>
                 </div>
