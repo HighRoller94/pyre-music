@@ -45,7 +45,6 @@ function Sidebar({ accessToken }) {
         getUserPlaylists();
     }, [accessToken, user])
 
-    console.log(myPlaylists)
     return (
         <motion.div 
             className="sidebar"
@@ -93,7 +92,7 @@ function Sidebar({ accessToken }) {
             </ul>
             <ul className="playlist__links">
                 {myPlaylists?.map((playlist) => 
-                    <SidebarPlaylist playlist={playlist} />
+                    <SidebarPlaylist key={playlist.id} playlist={playlist} />
                 )}
             </ul>
             <div className="user">

@@ -60,8 +60,8 @@ function Favourites({ chooseTrack, accessToken }) {
                 </div>
                 <div className="divider"></div>
                 <div className="tracks">
-                    {tracks?.map((track) =>
-                        <TopTracks key={track.id} chooseTrack={chooseTrack} track={track} />
+                    {tracks?.map((track, i) =>
+                        <TopTracks index={i} key={track.id} chooseTrack={chooseTrack} track={track} />
                     )}
                 </div>
             </div>

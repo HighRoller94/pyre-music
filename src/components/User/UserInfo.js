@@ -16,6 +16,7 @@ function UserInfo({ total, info, accessToken }) {
     const fileInputRef = useRef();
     const [contains, setContains] = useState();
     
+    console.log(info)
     const followUserToast = () => {
         return (
             <div className="follow__toast">

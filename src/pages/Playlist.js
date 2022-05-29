@@ -50,7 +50,7 @@ function Playlist({ updatePlaylist, accessToken, chooseTrack, code}) {
                     <p className="duration">Duration</p>
                 </div>
                 {playlistTracks?.map((track, i) => 
-                    <PlaylistTracks index={i} updatePlaylist={updatePlaylist} track={track} info={playlistInfo} chooseTrack={chooseTrack} accessToken={accessToken} />
+                    <PlaylistTracks key={track.track.id} index={i} updatePlaylist={updatePlaylist} track={track} info={playlistInfo} chooseTrack={chooseTrack} accessToken={accessToken} />
                 )}
             </div>
             {playlistInfo?.body.owner.id == user?.body.id ? (

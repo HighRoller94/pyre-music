@@ -14,7 +14,6 @@ import VolumeMuteIcon from '@material-ui/icons/VolumeMute';
 import VolumeDownIcon from '@material-ui/icons/VolumeDown';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 
-
 const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
 });
@@ -24,12 +23,12 @@ function Footer({ chooseTrack, accessToken }) {
     const [{ playingTrack, playing }, dispatch] = useDataLayerValue();
     const [play, setPlay] = useState(false)
     const [volume, setVolume] = useState(100)
-
     useEffect(() => setPlay(true), [playingTrack])
     
     useEffect(() => {
         if (!accessToken) return null
         spotifyApi.setAccessToken(accessToken)
+
     }, [accessToken])
 
     const handlePlayPause = () => {
@@ -53,32 +52,33 @@ function Footer({ chooseTrack, accessToken }) {
     if (!accessToken) return null
     return (   
         <div>           
-                <div className="footer">
-                    <div>
+            <div className="footer">
+                <div>
                     <SpotifyPlayer 
-                    className="player"
-                    token={accessToken}
-                    showSaveIcon
-                    callback={state => {
-                        if (!state.isPlaying) setPlay(true)
-                    }}
-                    play={playing}
-                    uris={playingTrack ? [playingTrack] : []}
-                    styles={{
-                        height: 70,
-                        color: 'white',
-                        bgColor: '#080808',
-                        trackNameColor: 'white',
-                        trackArtistColor: 'white',
-                        sliderColor: '#FF6600',
-                        sliderHandleColor: 'white',
-                        sliderTrackColor: '2c2c2c',
-                        sliderTrackBorderRadius: '2'
-                    }}
-                    
-                />
+                        className="player"
+                        token={accessToken}
+                        showSaveIcon
+                        callback={state => {
+                            if (!state.isPlaying) setPlay(true)
+                        }}
+                        play={playing}
+                        uris={playingTrack ? [playingTrack] : []}
+                        styles={{
+                            height: 70,
+                            color: 'white',
+                            bgColor: '#080808',
+                            trackNameColor: 'white',
+                            trackArtistColor: 'white',
+                            sliderColor: '#FF6600',
+                            sliderHandleColor: 'white',
+                            sliderTrackColor: '2c2c2c',
+                            sliderTrackBorderRadius: '2'
+                        }}
+                        
+                    />
                 </div>
             </div>
+
             {/* 
             <div>
                 <div className="footer">

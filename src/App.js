@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import useAuth from './components/Hooks/useAuth';
 import { useDataLayerValue } from './DataLayer';
 import SpotifyWebApi from 'spotify-web-api-node';
-import axios from 'axios'
+import axios from 'axios';
+import { AnimatePresence } from 'framer-motion';
 
 import { ToastContainer, Slide } from 'react-toastify';
 
@@ -68,6 +69,14 @@ function App() {
         if (!code) return
         if (!accessToken) return
         spotifyApi.setAccessToken(accessToken)
+        
+        spotifyApi.getMe().then((user) => {
+            dispatch({
+                type: 'SET_USER',
+                user: user
+            })
+        })
+
     }, [accessToken])
 
     function chooseTrack(track) {

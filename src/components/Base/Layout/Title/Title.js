@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Title({ }) {
+function Title({ header, text, extra }) {
   return (
     <div>Title</div>
   )

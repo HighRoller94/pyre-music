@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     margin: 0;
-    padding: 1rem 3.2rem;
+    padding: 1.5rem 3.2rem;
     margin-bottom: 6rem;
     .recent__row {
         width: 100%;
@@ -11,21 +11,20 @@
             font-family: $headerFont;
             margin-left: -5px;
         }
+        .recent__tracks {
+            display: grid;
+            grid-template-columns: 49.4% 49.4%;
+            column-gap: 1rem;    
+        }
     }
     .home__gridone {
         display: flex;
         flex-direction: column;
         width: 100%;
         color: white;
-        margin-top: 10px;
-        .recent__tracks {
-            display: flex;
-            margin-top: 2.3rem;
-            z-index: 2;      
-        }
         .recent__artists {
             h2 {
-                margin-top: 1.5rem;
+                margin-top: 2rem;
                 font-size: $headerFontSize;
                 font-family: $headerFont;
             }

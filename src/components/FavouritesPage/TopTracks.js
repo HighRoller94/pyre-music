@@ -5,8 +5,9 @@ import { useDataLayerValue } from '../../DataLayer'
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled'
 
+import PlayingAnim from '../PlayingAnim';
 
-function TopTracks({ track, chooseTrack }) {
+function TopTracks({ index, track, chooseTrack }) {
     const [{ user, playing, playingTrack }, dispatch] = useDataLayerValue();
     
     function handlePlay() {
@@ -31,22 +32,33 @@ function TopTracks({ track, chooseTrack }) {
     }
 
     return (
-        <div className="top__track" onDoubleClick={handlePlay}>
+        <div className="top__track">
+            <div className="playlist__track" onDoubleClick={handlePlay}>
                 <div className="track__infoLeft">
-                    <Link to={`/album/${track.album.id}`}>
-                        <img className="track__image" src={track.album.images[0]?.url} alt="" />
+                    {(track.uri != playingTrack || !playing) ? 
+                        <p>{index + 1}</p>
+                        :
+                        <PlayingAnim />
+                    }
+                    <Link to={`/album/${track?.album.id}`}>
+                        <img className="track__image" src={track?.album.images[0]?.url} alt="" />
                     </Link>
-                    <h1 className="artist__trackName">{track.name}</h1>
-                    <h2 className="artist__name">{track.artists[0].name}</h2>
+                    <h1>{track.name}</h1>
+                </div>
+                <div className="track__infoMid">
+                    <Link to={`/artist/${track.artists[0].id}`} styles={{ background: 'none'}}>
+                        <h2 className="artist__name">{track?.artists[0].name}</h2>
+                    </Link>
                 </div>
                 <div className="track__infoRight">
-                    <h3>{convertTimestamp(track.duration_ms)}</h3>
+                    <h3>{convertTimestamp(track?.duration_ms)}</h3>
                     {(track.uri != playingTrack || !playing) ?
                             <PlayCircleFilledIcon onClick={handlePlay} className="play__icon" />
                         : 
                             <PauseCircleFilledIcon onClick={handlePause} className="play__icon" />
                     }
                 </div>
+            </div>
         </div>
     )
 }

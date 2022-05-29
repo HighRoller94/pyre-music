@@ -54,8 +54,8 @@ function Dashboard({ accessToken, chooseTrack }) {
                     <h1>Shall we jump back in?</h1>
                     <div className="divider"></div>
                     <div className="recent__tracks">
-                        {uniqueSongs?.map((track =>
-                            <RecentlyPlayedSong key={track.name} chooseTrack={chooseTrack} track={track}/>
+                        {uniqueSongs?.map(((track, i) =>
+                            <RecentlyPlayedSong index={i} key={track.name} chooseTrack={chooseTrack} track={track}/>
                         ))}
                     </div>
                 </div>

@@ -54,7 +54,6 @@ function Library({ chooseTrack, accessToken }) {
                     )}
                 </div>
             </div>
-            
             <div className="library__albums">
                 <div className="library__albumHeader">
                     <h1>My Albums</h1>

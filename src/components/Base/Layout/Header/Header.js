@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SpotifyWebApi from 'spotify-web-api-node'
 import { Link, useNavigate } from 'react-router-dom'
-import { SpectrumVisualizer, SpectrumVisualizerTheme } from 'react-audio-visualizers';
+import { WaveformVisualizer, WaveformVisualizerTheme } from 'react-audio-visualizers';
 
 import SearchPage from '../../../../pages/SearchPage';
 import { useDataLayerValue } from '../../../../DataLayer'
@@ -58,26 +58,39 @@ function Header({ accessToken, chooseTrack }) {
                     <div className="header__left">
                         <div className="header__top">
                             <h1>Hey {user?.body.display_name}, what shall we listen to today?</h1>
+                            <div className="search__input">
+                                <SearchIcon className="search__icon" onClick={setOpenSearch}/>
+                                <input 
+                                    placeholder="Search artists..." 
+                                    spellCheck="false"
+                                    type="text" 
+                                    value={search} 
+                                    onChange={e => setSearch(e.target.value)}
+                                />
+                            </div>
                         </div>
-                        <div className="search__input">
-                            <SearchIcon className="search__icon" onClick={setOpenSearch}/>
-                            <input 
-                                placeholder="Search artists..." 
-                                spellCheck="false"
-                                type="text" 
-                                value={search} 
-                                onChange={e => setSearch(e.target.value)}
-                            />
+                        <div className="nav">
+                            <div className="nav__icons">
+                                <KeyboardArrowLeftIcon onClick={() => navigate(-1)} className="nav__iconOne"/>
+                            </div>
+                            <div className="nav__icons">
+                                <KeyboardArrowRightIcon onClick={() => navigate(+1)} className="nav__iconTwo"/>
+                            </div>
                         </div>
                     </div>
-                    <div className="nav">
-                        <div className="nav__icons">
-                            <KeyboardArrowLeftIcon onClick={() => navigate(-1)} className="nav__iconOne"/>
-                        </div>
-                        <div className="nav__icons">
-                            <KeyboardArrowRightIcon onClick={() => navigate(+1)} className="nav__iconTwo"/>
-                        </div>
+                    {/* <div className="header__right">
+                    <WaveformVisualizer
+                        audio="https://open.spotify.com/track/3BEGSRPgeIOUKdMXzJL84R"
+                        theme={WaveformVisualizerTheme.line}
+                        colors={['#009688', '#26a69a']}
+                        iconsColor="#26a69a"
+                        backgroundColor="white"
+                        showMainActionIcon
+                        showLoaderIcon
+                        highFrequency={8000}
+                    />
                     </div>
+                    */}
                 </div>
                 
             </div>

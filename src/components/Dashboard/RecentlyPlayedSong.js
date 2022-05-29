@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom'
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled'
 
-function RecentlyPlayedSong({ track, chooseTrack }) {
+import PlayingAnim from '../PlayingAnim';
+
+function RecentlyPlayedSong({ index, track, chooseTrack }) {
     const [{ playingTrack, playing }, dispatch] = useDataLayerValue();
 
     function handlePlay() {
@@ -33,17 +35,19 @@ function RecentlyPlayedSong({ track, chooseTrack }) {
         <div className="recent__song">
             <div className="playlist__track" onDoubleClick={handlePlay}>
                 <div className="track__infoLeft">
+                    {(track.uri != playingTrack || !playing) ? 
+                        <p>{index + 1}</p>
+                        :
+                        <PlayingAnim />
+                    }
                     <Link to={`/album/${track?.album.id}`}>
                         <img className="track__image" src={track?.album.images[0]?.url} alt="" />
                     </Link>
                     <h1>{track.name}</h1>
-                    <Link to={`/artist/${track.artists[0].id}`} styles={{ background: 'none'}}>
-                        <h2 className="artist__name">{track?.artists[0].name}</h2>
-                    </Link>
                 </div>
                 <div className="track__infoMid">
-                    <Link to={`/album/${track?.album.id}`}>
-                        <p className="track__albumName">{track?.album.name}</p>
+                    <Link to={`/artist/${track.artists[0].id}`} styles={{ background: 'none'}}>
+                        <h2 className="artist__name">{track?.artists[0].name}</h2>
                     </Link>
                 </div>
                 <div className="track__infoRight">

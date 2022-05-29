@@ -57,9 +57,32 @@ function PlaylistInfo({ updatePlaylist, info, chooseTrack, accessToken, code}) {
         )
     }
 
+    
     useEffect(() => {
         if (!accessToken) return
         spotifyApi.setAccessToken(accessToken)
+
+        // This call using spotify-web-api doesn't work
+        // Deploy workaround, get users playlists, iterate over each and if ID exists return true
+        // Inefficient when dealing with alot of playlists? 
+
+        /*
+
+        const checkPlaylistFollowStatus = async () => {
+            console.log(user)
+            console.log(info.body.owner.id)
+            spotifyApi.areFollowingPlaylist(`${id}`, ['31qizpn5g2ok367k7sfdzllxlij4', 'reide001'])
+            .then(function(data) {
+                data.body.forEach(function(isFollowing) {
+                    console.log("User is following: " + isFollowing);
+                });
+            }, function(err) {
+            console.log('Something went wrong!', err);
+            });
+        }
+        checkPlaylistFollowStatus();
+
+        */
     }, [])
 
     function handlePlay() {
@@ -80,7 +103,6 @@ function PlaylistInfo({ updatePlaylist, info, chooseTrack, accessToken, code}) {
     function followPlaylist() {
         spotifyApi.followPlaylist(`${id}`)
         .then(res => {
-            console.log('Following Playlist')
             setContains(true)
         }, function(err) {
             console.log('Something went wrong!', err);
@@ -91,7 +113,6 @@ function PlaylistInfo({ updatePlaylist, info, chooseTrack, accessToken, code}) {
     function unfollowPlaylist() {
         spotifyApi.unfollowPlaylist(`${id}`)
         .then(res => {
-            console.log('Unfollowed Playlist')
             setContains(false)
         }, function(err) {
             console.log('Something went wrong!', err);

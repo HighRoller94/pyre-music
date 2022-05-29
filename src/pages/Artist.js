@@ -39,7 +39,6 @@ function Artist({ accessToken, chooseTrack }) {
 
     const topTracks = artistTracks.slice(0,5);
 
-    console.log(topTracks)
     return (
         <div className="artist__page">
             <div>

@@ -3,12 +3,11 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    height: 90vh;
+    height: 80vh;
     .login__container {
         background-color: #0c0c0c;
         border-radius: .5rem;
         border: 1px solid #1c1c1c;
-        height: 36%;
         width: 22%;
         min-width: 400px;
         display: flex;
@@ -62,7 +61,7 @@
             justify-content: center;
             padding: 1.3rem 1rem;
             width: 65%;
-            margin: .5rem;
+            margin-bottom: 1.5rem;
             font-weight: 600;
             font-size: 1rem;
             background: linear-gradient(90deg, rgba(227,197,45,1) 0%, rgba(255,145,0,1) 100%);
