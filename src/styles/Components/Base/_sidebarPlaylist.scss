@@ -1,0 +1,46 @@
+.side__playlist {
+    display: flex;
+    align-items: center;
+    margin: .5rem 0;
+    img {
+        width: 30px;
+        display: none;
+    }
+    p {
+        font-weight: 600;
+        font-family: 'Helvetica', sans-serif;
+        font-size: .9rem;
+        width: 90%;
+        color: darkgrey;
+        opacity: .4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        transition: 300ms ease-in;
+        &:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+}
+
+.sidebar.active {
+    .side__playlist {
+        margin: .4rem 0;
+        img {
+            opacity: .7;
+            border-radius: 5px;
+            margin-left: .25rem;
+            display: block;
+            transition: 300ms ease-in;
+            &:hover {
+                opacity: 1;
+                cursor: pointer;
+            }
+        }
+        p {
+            display: none;
+        }
+    }
+}

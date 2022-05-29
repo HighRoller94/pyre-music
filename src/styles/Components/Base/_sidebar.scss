@@ -1,13 +1,14 @@
 .sidebar {
     height: 100vh;
     position: sticky;
-    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
     left: 0;
     top: 0;
     width: 11.5rem;
     z-index: 99;
     min-width: 11rem;
-    background-color: #0c0c0c;
+    background-color: #121212;
     transition: 300ms ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     .sidebar__menu {
@@ -46,7 +47,6 @@
             display: flex;          
             position: relative;
             padding: .3rem 0;
-
             align-items: center;
             height: 3.5rem;
             width: 100%;
@@ -55,7 +55,6 @@
             .icon {
                 background: none;
                 transition: 300ms ease-in-out;
-
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -100,53 +99,61 @@
                 color: white;
             }
         }
-        .user {
-            transition: 300ms ease-in-out;
-            display: flex;
-            align-items: center;
-            margin: 1rem 0;
-            justify-content: center;
-            margin-left: -.5rem;
-            margin-top: 21.5rem;
-            .user__image {
-                width: 3.5rem;
-                transition: 200ms ease-in;
+    }
+    .playlist__links {
+        display: flex;
+        flex-direction: column;
+        margin-left: -1.2rem;
+        margin-top: -.2rem;
+    }
+    .user {
+        transition: 300ms ease-in-out;
+        display: flex;
+        align-items: center;
+        margin: 1rem 0;
+        justify-content: center;
+        margin-left: -.5rem;
+        position: absolute;
+        bottom: 19%;
+        left: 17%;
+        .user__image {
+            width: 3.5rem;
+            transition: 200ms ease-in;
+        }
+        .user__logged {
+            display: block;
+            margin-left: 1rem;
+            span {
+                color: white;
+                opacity: .7;
+                font-size: .7rem;
             }
-            .user__logged {
-                display: block;
-                margin-left: 1rem;
-                span {
-                    color: white;
-                    opacity: .7;
-                    font-size: .7rem;
-                }
-                h1 {
-                    margin-top: .2rem;
-                    color: white;
-                    font-weight: 600;
-                    font-size: 1.1rem;
-                }
+            h1 {
+                margin-top: .2rem;
+                color: white;
+                font-weight: 600;
+                font-size: 1.1rem;
             }
         }
-        .expand__container {
-            border-top: 2px solid #1c1c1c;
-            padding-top: 1.3rem;
-            width: 100%;
-            position: absolute;
-            bottom: 7.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .expandBtn {
-                margin-left: 6rem;
-                font-size: 2rem;
-                color: $pyreOrange;
-                transform: rotate(-90deg);
-                transition: 300ms ease-in-out;
-                &:hover {
-                    cursor: pointer;
-                    color: white;
-                }
+    }
+    .expand__container {
+        border-top: 2px solid #1c1c1c;
+        padding-top: 1.3rem;
+        width: 100%;
+        position: absolute;
+        bottom: 7.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .expandBtn {
+            margin-left: 6rem;
+            font-size: 2rem;
+            color: $pyreOrange;
+            transform: rotate(-90deg);
+            transition: 300ms ease-in-out;
+            &:hover {
+                cursor: pointer;
+                color: white;
             }
         }
     }
@@ -212,38 +219,37 @@
         .active {
             background-color: #1c1c1c;
         }
-        .user {
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 0;
-            margin-top: 22.5rem;
-            .user__image {
-                width: 3rem;
-            }
-            .user__logged {
-                display: none;
-            }
+    }
+    .user {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: .15rem;
+        margin-top: 22rem;
+        .user__image {
+            width: 3rem;
         }
-        .expand__container {
-            border-top: 2px solid #1c1c1c;
-            padding-top: 1.3rem;
-            width: 100%;
-            position: absolute;
-            bottom: 7.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .expandBtn {
-                margin-left: 0;
-                font-size: 2rem;
-                transform: rotate(0);
-                transition: 300ms ease-in-out;
-                &:hover {
-                    cursor: pointer;
-                    color: white;
-                }
+        .user__logged {
+            display: none;
+        }
+    }
+    .expand__container {
+        border-top: 2px solid #1c1c1c;
+        padding-top: 1.3rem;
+        width: 100%;
+        position: absolute;
+        bottom: 7.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .expandBtn {
+            margin-left: 0;
+            font-size: 2rem;
+            transform: rotate(0);
+            transition: 300ms ease-in-out;
+            &:hover {
+                cursor: pointer;
+                color: white;
             }
         }
     }

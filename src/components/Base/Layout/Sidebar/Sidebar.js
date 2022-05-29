@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import SpotifyWebApi from 'spotify-web-api-node'
 import { useDataLayerValue } from '../../../../DataLayer'
@@ -13,6 +13,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import LaunchIcon from '@material-ui/icons/Launch';
 
+import SidebarPlaylist from './SidebarPlaylist';
+
 const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
 });
@@ -20,23 +22,30 @@ const spotifyApi = new SpotifyWebApi({
 function Sidebar({ accessToken }) {
     const [{ user }, dispatch] = useDataLayerValue()
     const { pathname } = useLocation();
+    const [myPlaylists, setMyPlaylists] = useState([]);
 
     useEffect(() => {
-        if (!accessToken) return
-        spotifyApi.setAccessToken(accessToken)
-        spotifyApi.getMe().then((user) => {
-            dispatch({
-                type: 'SET_USER',
-                user: user
-            })
-        })
+
         const sideMenu = document.querySelector('.sidebar')
         const expandBtn = document.querySelector('.expandBtn');
         expandBtn.addEventListener('click', () => {
             sideMenu.classList.toggle('active');
         })
-    }, [accessToken])
 
+        if (!accessToken) return
+        spotifyApi.setAccessToken(accessToken)
+        
+        const getUserPlaylists = async () => {
+            spotifyApi.getUserPlaylists(`${user?.body.id}`, { limit: 7 })
+            .then(res => {
+                setMyPlaylists(res.body.items)
+            });
+        }
+        
+        getUserPlaylists();
+    }, [accessToken, user])
+
+    console.log(myPlaylists)
     return (
         <motion.div 
             className="sidebar"
@@ -81,18 +90,22 @@ function Sidebar({ accessToken }) {
                         <span>Account</span>
                     </Link>
                 </li>
-                <li className="user">
-                    <img className="user__image" src={user?.body.images[0]?.url} alt="UserImage" />
-                    <div className="user__logged">
-                        <span>Logged in as</span>
-                        <h1>{user?.body.display_name}</h1>
-                    </div>
-                </li>
-                <li className="expand__container">
-                    <LaunchIcon className="expandBtn" />
-                </li>
             </ul>
-            
+            <ul className="playlist__links">
+                {myPlaylists?.map((playlist) => 
+                    <SidebarPlaylist playlist={playlist} />
+                )}
+            </ul>
+            <div className="user">
+                <img className="user__image" src={user?.body.images[0]?.url} alt="UserImage" />
+                <div className="user__logged">
+                    <span>Logged in as</span>
+                    <h1>{user?.body.display_name}</h1>
+                </div>
+            </div>
+            <div className="expand__container">
+                <LaunchIcon className="expandBtn" />
+            </div>
         </motion.div>
     )
 }
