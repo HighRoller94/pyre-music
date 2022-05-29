@@ -5,6 +5,8 @@ import { useDataLayerValue } from '../../DataLayer'
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled'
 
+import PlayingAnim from '../PlayingAnim';
+
 function ArtistTracks({ index, chooseTrack, track }) {
     const [{ playingTrack, playing }, dispatch] = useDataLayerValue();
 
@@ -32,7 +34,11 @@ function ArtistTracks({ index, chooseTrack, track }) {
     return (
         <div className="artist__track" onDoubleClick={handlePlay}>
                 <div className="track__infoLeft">
-                    <p>{index + 1}</p>
+                    {(track.uri != playingTrack || !playing) ? 
+                        <p>{index + 1}</p>
+                        :
+                        <PlayingAnim />
+                    }
                     <Link to={`/album/${track.album.id}`}>
                         <img className="track__image" src={track.album.images[0]?.url} alt="" />
                     </Link>

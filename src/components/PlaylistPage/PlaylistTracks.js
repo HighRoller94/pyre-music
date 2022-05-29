@@ -8,6 +8,8 @@ import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
+import PlayingAnim from '../PlayingAnim';
+
 const spotifyApi = new SpotifyWebApi({
     clientId: "a4461782c5b040b2a456806c4d99258f",
 });
@@ -55,7 +57,11 @@ function PlaylistTracks({ index, updatePlaylist, track, info, chooseTrack, acces
         <div className="playlist__row">
             <div className="playlist__track" onDoubleClick={handlePlay}>
                 <div className="track__infoLeft">
-                    <p>{index + 1}</p>
+                    {(track?.track.uri != playingTrack || !playing) ? 
+                        <p>{index + 1}</p>
+                        :
+                        <PlayingAnim />
+                    }
                     <Link to={`/album/${track.track.album.id}`}>
                         <img className="track__image" src={track?.track.album.images[0]?.url} alt="" />
                     </Link>

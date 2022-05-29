@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
 
+import PlayingAnim from '../PlayingAnim';
+
 function AlbumTracks({ track, chooseTrack, index }) {
     const [{ playingTrack, playing }, dispatch] = useDataLayerValue();
 
@@ -32,7 +34,11 @@ function AlbumTracks({ track, chooseTrack, index }) {
     return (
         <div className="album__track" onDoubleClick={handlePlay}>
             <div className="albumTrackInfo__left">
-                <p>{index + 1}</p>
+                {(track.uri != playingTrack || !playing) ? 
+                    <p>{index + 1}</p>
+                    :
+                    <PlayingAnim />
+                }
                 <h1>{track.name}</h1>
             </div>
             <div className="albumTrackInfo__mid">
