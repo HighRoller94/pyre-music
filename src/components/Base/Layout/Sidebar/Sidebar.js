@@ -95,13 +95,17 @@ function Sidebar({ accessToken }) {
                     <SidebarPlaylist key={playlist.id} playlist={playlist} />
                 )}
             </ul>
-            <div className="user">
-                <img className="user__image" src={user?.body.images[0]?.url} alt="UserImage" />
-                <div className="user__logged">
-                    <span>Logged in as</span>
-                    <h1>{user?.body.display_name}</h1>
+            {user ? (
+                <div className="user">
+                    <img className="user__image" src={user?.body.images[0]?.url} alt="UserImage" />
+                    <div className="user__logged">
+                        <span>Logged in as</span>
+                        <h1>{user?.body.display_name}</h1>
+                    </div>
                 </div>
-            </div>
+            ) : (
+                <div className="loader"></div>
+            )}
             <div className="expand__container">
                 <LaunchIcon className="expandBtn" />
             </div>

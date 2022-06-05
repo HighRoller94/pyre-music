@@ -136,6 +136,17 @@
             }
         }
     }
+    .loader {
+        position: absolute;
+        bottom: 22%;
+        left: 35%;
+        height: 40px;
+        width: 40px;
+        border-top: 4px solid $pyreOrange;
+        border-right: 4px solid transparent;
+        border-radius: 50%;
+        animation: 1s spin linear infinite;
+    }
     .expand__container {
         border-top: 2px solid #1c1c1c;
         padding-top: 1.3rem;
@@ -233,6 +244,17 @@
             display: none;
         }
     }
+    .loader {
+        position: absolute;
+        bottom: 20%;
+        left: 30%;
+        height: 30px;
+        width: 30px;
+        border-top: 4px solid $pyreOrange;
+        border-right: 4px solid transparent;
+        border-radius: 50%;
+        animation: 1s spin linear infinite;
+    }
     .expand__container {
         border-top: 2px solid #1c1c1c;
         padding-top: 1.3rem;
@@ -252,5 +274,14 @@
                 color: white;
             }
         }
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }
